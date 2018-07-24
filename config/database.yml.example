@@ -19,6 +19,7 @@ default: &default
 
 development:
   <<: *default
+  host: localhost
   database: rails_friend_online_making_01_development
 
 # Warning: The database defined as "test" will be erased and
