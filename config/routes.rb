@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "/signup", to: "users#new"
+  post "/signup", to: "users#create"
   get "/template/login" => "template#login"
   get "/template/new_feed" => "template#new_feed"
   get "/template/new_feed_people_nearby" => "template#new_feed_people_nearby"

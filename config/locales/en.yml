@@ -1,2 +1,26 @@
 en:
   hello: "Hello world"
+  success: "Success"
+  users:
+    new:
+      sign_up: "Sign up"
+      create: "Create my account"
+      find_friend: "Find My Friend"
+      sign_up_now: "Signup now and meet awesome people around the world"
+      name: "Enter name"
+      email: "Enter email"
+      password: "Enter Password"
+      password_confirmation: "Enter password confirmation"
+      have_account: "Already have an account?"
+      social: "social herd"
+      make_friend: "Make Friends"
+      post: "Publish Posts"
+      chats: "Private Chats"
+      polls: "Create Polls"
+      find_people: "find awesome people like you"
+      people_signup: "People Already Signed Up"
+      download: "download"
+
+  shared:
+    content1: "The form contains"
+    error: "error"
