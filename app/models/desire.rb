@@ -1,0 +1,2 @@
+class Desire < ApplicationRecord
+end
