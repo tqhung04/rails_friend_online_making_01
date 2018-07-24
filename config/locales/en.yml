@@ -1,6 +1,12 @@
 en:
   hello: "Hello world"
   success: "Success"
+  error: "Error"
+  account: "Account"
+  profile: "Profile"
+  log_out: "Log out"
+  log_in: " Login "
+
   users:
     new:
       sign_up: "Sign up"
@@ -20,7 +26,16 @@ en:
       find_people: "find awesome people like you"
       people_signup: "People Already Signed Up"
       download: "download"
-
   shared:
-    content1: "The form contains"
-    error: "error"
+    error_messages:
+      content1: "The form contains"
+      error: "error"
+  sessions:
+    new:
+      find_friend: "Find My Friend"
+      log_in_now: "Signup now and meet awesome people around the world"
+      name: "Enter name"
+      email: "Enter email"
+      password: "Enter Password"
+    create:
+      danger: "Invalid email/password combination"

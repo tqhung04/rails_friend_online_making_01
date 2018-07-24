@@ -4,8 +4,7 @@ class BlogsController < ApplicationController
   before_action :check_rights_delete, only: [:destroy]
   before_action :check_rights_update, only: [:edit, :update]
 
-  def show
-  end
+  def show; end
 
   def new
     @blog = current_user.blogs.new
@@ -20,8 +19,7 @@ class BlogsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @blog.update_attributes blog_params
