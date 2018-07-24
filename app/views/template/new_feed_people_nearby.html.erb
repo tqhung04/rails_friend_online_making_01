@@ -1,0 +1,58 @@
+<div id="page-contents">
+  <div class="container">
+    <div class="row">
+      <!-- Newsfeed Common Side Bar Left
+      ================================================= -->
+      <div class="col-md-3 static">
+        <div class="profile-card">
+          <%= image_tag("users/user-1.jpg", :class => "profile-photo") %>
+          <h5><a href="timeline.html" class="text-white">Sarah Cruiz</a></h5>
+          <a href="#" class="text-white"><i class="ion ion-android-person-add"></i> 1,299 followers</a>
+        </div><!--profile card ends-->
+        <%= render "template/new_feed_nav_new_feed" %>
+        <div id="chat-block">
+          <div class="title">Chat online</div>
+          <%= render "template/new_feed_online_users" %>
+        </div><!--chat block ends-->
+      </div>
+      <div class="col-md-7">
+        <%= render "template/new_feed_post_create_box" %>
+
+        <!-- Nearby People List
+        ================================================= -->
+        <div class="people-nearby">
+          <div class="google-maps">
+            <div id="map" class="map"></div>
+          </div>
+          <% 8.times do %>
+            <div class="nearby-user">
+              <div class="row">
+                <div class="col-md-2 col-sm-2">
+                  <%= image_tag("users/user-15.jpg", :class => "profile-photo-lg") %>
+                </div>
+                <div class="col-md-7 col-sm-7">
+                  <h5><a href="#" class="profile-link">Sophia Page</a></h5>
+                  <p>Software Engineer</p>
+                  <p class="text-muted">500m away</p>
+                </div>
+                <div class="col-md-3 col-sm-3">
+                  <button class="btn btn-primary pull-right">Add Friend</button>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+      <!-- Newsfeed Common Side Bar Right
+      ================================================= -->
+      <div class="col-md-2 static">
+        <div class="suggestions" id="sticky-sidebar">
+          <%= render "template/new_feed_who_to_follow" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyCTMXfmDn0VlqWIyoOxK8997L-amWbUPiQ&callback=initMap", :defer => "defer", :async => true %>

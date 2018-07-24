@@ -1,0 +1,37 @@
+<div class="container">
+
+  <!-- Timeline
+  ================================================= -->
+  <div class="timeline">
+    <%= render "template/timeline_cover" %>
+    <div id="page-contents">
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-7">
+
+          <!-- Photo Album
+          ================================================= -->
+          <ul class="album-photos">
+            <% 9.times do %>
+              <li>
+                <div class="img-wrapper" data-toggle="modal" data-target=".photo-1">
+                  <%= image_tag("album/1.jpg") %>
+                </div>
+                <div class="modal fade photo-1" tabindex="-1" role="dialog" aria-hidden="true">
+                  <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                      <%= image_tag("album/2.jpg") %>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+        <div class="col-md-2 static">
+          <%= render "template/timeline_activity" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

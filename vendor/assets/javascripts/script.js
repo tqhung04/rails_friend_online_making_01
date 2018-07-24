@@ -29,7 +29,7 @@ jQuery(document).ready(function($) {
     var lazy = $('#header.lazy-load')
 
     $(window).on('scroll', function() {
-        if ($(this).scrollTop() > 200) {
+        if ($(this).scrollTop() > 50) {
             lazy.addClass('visible');
         } else {
             lazy.removeClass('visible');
@@ -150,7 +150,7 @@ $(window).on("resize", function() {
 
 // Fuction for map initialization
 function initMap() {
-  var uluru = {lat: 12.927923, lng: 77.627108};
+  var uluru = {lat: 21.009563, lng: 105.855716};
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 15,
     center: uluru,
@@ -159,9 +159,10 @@ function initMap() {
     scrollwheel: false,
     disableDoubleClickZoom: true
   });
-  
+
   var marker = new google.maps.Marker({
     position: uluru,
     map: map
   });
 }
+
