@@ -1,33 +1,39 @@
-<!-- Top Banner
-================================================= -->
+<% provide :title, t(".sign_up") %>
 <section id="banner">
   <div class="container">
-
-    <!-- Sign Up Form
-    ================================================= -->
     <div class="sign-up-form">
-      <a href="index.html" class="logo">
-        <%= image_tag("logo.png", :alt => "logo") %>
+      <a class="logo">
+        <%= image_tag("logo.png") %>
       </a>
-      <h2 class="text-white">Find My Friends</h2>
+      <h2 class="text-white"><%= t ".find_friend" %></h2>
       <div class="line-divider"></div>
       <div class="form-wrapper">
-        <p class="signup-text">Signup now and meet awesome people around the world</p>
-        <form action="#">
-          <fieldset class="form-group">
-            <input type="text" class="form-control" id="example-name" placeholder="Enter name">
-          </fieldset>
-          <fieldset class="form-group">
-            <input type="email" class="form-control" id="example-email" placeholder="Enter email">
-          </fieldset>
-          <fieldset class="form-group">
-            <input type="password" class="form-control" id="example-password" placeholder="Enter a password">
-          </fieldset>
-        </form>
-        <p>By signning up you agree to the terms</p>
-        <button class="btn-secondary">Signup</button>
+        <p class="signup-text"><%= t ".sign_up_now" %></p>
+        <%= form_for @user do |f| %>
+        <%= render "shared/error_messages" %>
+        <%= field_set_tag nil, class: "form-group" do %>
+        <%= f.text_field :name, class: "form-control", id: "example-name",
+          placeholder: t(".name") %>
+        <% end %>
+
+        <%= field_set_tag nil, class: "form-group" do %>
+        <%= f.text_field :email, class: "form-control", id: "example-email",
+          placeholder: t(".email") %>
+        <% end %>
+
+        <%= field_set_tag nil, class: "form-group" do %>
+        <%= f.password_field :password, class: "form-control",
+          id: "example-password", placeholder: t(".password") %>
+        <% end %>
+
+        <%= field_set_tag nil, class: "form-group" do %>
+        <%= f.password_field :password_confirmation, class: "form-control",
+          placeholder: t(".password_confirmation") %>
+        <% end %>
+        <%= f.submit t(".create"), class: "btn-secondary" %>
+      <% end %>
       </div>
-      <a href="#">Already have an account?</a>
+      <a href="#"><%= t ".have_account" %></a>
       <%= image_tag("bottom-shadow.png", :class => "form_shadow") %>
     </div><!-- Sign Up Form End -->
 
@@ -43,35 +49,35 @@
 ================================================= -->
 <section id="features">
   <div class="container wrapper">
-    <h1 class="section-title slideDown">social herd</h1>
+    <h1 class="section-title slideDown"><%= t ".social" %></h1>
     <div class="row slideUp">
       <div class="feature-item col-md-2 col-sm-6 col-xs-6 col-md-offset-2">
         <div class="feature-icon"><i class="icon ion-person-add"></i></div>
-        <h3>Make Friends</h3>
+        <h3><%= t ".make_friend" %></h3>
       </div>
       <div class="feature-item col-md-2 col-sm-6 col-xs-6">
         <div class="feature-icon"><i class="icon ion-images"></i></div>
-        <h3>Publish Posts</h3>
+        <h3><%= t ".post" %></h3>
       </div>
       <div class="feature-item col-md-2 col-sm-6 col-xs-6">
         <div class="feature-icon"><i class="icon ion-chatbox-working"></i></div>
-        <h3>Private Chats</h3>
+        <h3><%= t ".chats" %></h3>
       </div>
       <div class="feature-item col-md-2 col-sm-6 col-xs-6">
         <div class="feature-icon"><i class="icon ion-compose"></i></div>
-        <h3>Create Polls</h3>
+        <h3><%= t ".polls" %></h3>
       </div>
     </div>
-    <h2 class="sub-title">find awesome people like you</h2>
+    <h2 class="sub-title"><%= t ".polls" %></h2>
     <div id="incremental-counter" data-value="101242"></div>
-    <p>People Already Signed Up</p>
+    <p><%= t ".polls" %></p>
     <%= image_tag("face-map.png", :class => "img-responsive face-map slideUp hidden-sm hidden-xs") %>
   </div>
 </section>
 
 <!-- Download Section
 ================================================= -->
-<section id="app-download">
+<!-- <section id="app-download">
   <div class="container wrapper">
     <h1 class="section-title slideDown">download</h1>
     <ul class="app-btn list-inline slideUp">
@@ -85,15 +91,15 @@
     <h2 class="sub-title">stay connected anytime, anywhere</h2>
     <%= image_tag("iPhone.png", :class => "img-responsive") %>
   </div>
-</section>
+</section> -->
 
 <!-- Image Divider
 ================================================= -->
-<div class="img-divider hidden-sm hidden-xs"></div>
+<!-- <div class="img-divider hidden-sm hidden-xs"></div> -->
 
 <!-- Facts Section
 ================================================= -->
-<section id="site-facts">
+<!-- <section id="site-facts">
   <div class="container wrapper">
     <div class="circle">
       <ul class="facts-list">
@@ -115,7 +121,7 @@
       </ul>
     </div>
   </div>
-</section>
+</section> -->
 
 <!-- Live Feed Section
 ================================================= -->
