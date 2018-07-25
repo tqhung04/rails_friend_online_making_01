@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   get "/template/timeline_about" => "template#timeline_about"
   get "/template/timeline_album" => "template#timeline_album"
   get "/template/timeline_friends" => "template#timeline_friends"
+  get "posts/new"
+  resources :blogs
 end
