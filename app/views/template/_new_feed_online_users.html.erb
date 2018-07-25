@@ -1,0 +1,10 @@
+<ul class="online-users list-inline">
+  <% 9.times do %>
+  <li>
+    <%= link_to(controller: "template", action: "new_feed_messages") do %>
+      <%= image_tag("users/user-1.jpg", :class => "img-responsive profile-photo") %>
+      <span class="online-dot"></span>
+    <% end %>
+  </li>
+  <% end %>
+</ul>
