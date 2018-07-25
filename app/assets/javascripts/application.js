@@ -3,10 +3,12 @@
 //= require jquery.incremental-counter
 //= require jquery.scrollbar.min
 //= require jquery.sticky-kit.min
-//= require jquery3
 //= require masonry.pkgd.min
 //= require rails-ujs
 //= require script
 //= require turbolinks
 //= require bootstrap
+//= require action_cable
+//= require_self
 //= require_tree .
+//= require_tree ./channels

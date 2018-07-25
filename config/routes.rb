@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "template#new_feed"
   get "/signup", to: "users#new"
   post "/signup", to: "users#create"
   get "/login", to: "sessions#new"
@@ -16,4 +17,10 @@ Rails.application.routes.draw do
   get "posts/new"
   resources :users
   resources :blogs
+  resources :users
+
+  mount ActionCable.server => "/cable"
+  resources :conversations do
+    resources :messages, only: [:index, :new, :create]
+  end
 end

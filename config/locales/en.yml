@@ -39,3 +39,6 @@ en:
       password: "Enter Password"
     create:
       danger: "Invalid email/password combination"
+  conversations:
+    conversation:
+      waiting: "Let's talk!"
