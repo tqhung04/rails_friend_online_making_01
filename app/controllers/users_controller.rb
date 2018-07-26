@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     if @user.save
       @email = @user.build_email email_params
       if @email.save
+        log_in @user
         flash[:success] = t("success")
         redirect_to @user
       else
@@ -21,6 +22,15 @@ class UsersController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    if @user.destroy
+      flash[:success] = t("success")
+    else
+      flash[:warning] = t("error")
+    end
+    redirect_to users_url
   end
 
   private
