@@ -6,7 +6,7 @@ en:
   profile: "Profile"
   log_out: "Log out"
   log_in: " Login "
-
+  submit: "Submit"
   users:
     new:
       sign_up: "Sign up"

@@ -1,0 +1,9 @@
+<%= form_for @support.new_comment, remote: true do |f| %>
+  <%= render "shared/error", object: @support.new_comment %>
+
+  <%= f.hidden_field :blog_id, value: @support.blog[:id] %>
+
+  <%= f.text_area :body, class: "form-control" %>
+
+  <%= f.submit t("submit"), class: "btn btn-primary" %>
+<% end %>

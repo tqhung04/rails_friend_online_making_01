@@ -4,7 +4,9 @@ class BlogsController < ApplicationController
   before_action :check_rights_delete, only: [:destroy]
   before_action :check_rights_update, only: [:edit, :update]
 
-  def show; end
+  def show
+    @support = Supports::BlogSupport.new(@blog, current_user)
+  end
 
   def new
     @blog = current_user.blogs.new
