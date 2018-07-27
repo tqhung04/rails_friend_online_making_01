@@ -4,6 +4,8 @@
 @import 'ionicons';
 @import 'font-awesome';
 
+$active_li_collor: #662d91;
+
 .chat-room .chat-body ul.chat-message {
   overflow: hidden;
 }
@@ -17,4 +19,12 @@
   float: left;
   margin-left: 6px;
   height: 34px
+}
+
+.active {
+
+  h6 {
+    font-weight: bold;
+    color: $active_li_collor
+  }
 }
