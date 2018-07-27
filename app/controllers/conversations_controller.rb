@@ -1,8 +1,11 @@
 class ConversationsController < ApplicationController
-  before_action :logged_in_user, :get_current_conversation, :allowed?,
-    :get_conversations, :get_last_messages, only: %i(show)
+  before_action :get_conversations, only: %i(index show)
+  before_action :logged_in_user, :get_current_conversation,
+    :allowed?, only: %i(show)
 
-  def index; end
+  def index
+    redirect_to action: :show, id: @conversations.last.id
+  end
 
   def show
     @messages = Message.message_asc.where conversation_id: params[:id]
@@ -25,12 +28,5 @@ class ConversationsController < ApplicationController
     @current_conversation = Conversation.find_by id: params[:id]
 
     redirect_to root_url if @current_conversation.nil?
-  end
-
-  def get_last_messages
-    @last_messages = []
-    @conversations.each do |conversation|
-      @last_messages << conversation.messages.where.not(user_id: current_user.id).last
-    end
   end
 end
