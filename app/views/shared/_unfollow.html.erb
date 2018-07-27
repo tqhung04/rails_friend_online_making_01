@@ -1,0 +1,30 @@
+<% if @conection.status %>
+  <%= form_for :conection, url: conection_path(@conection.id),  method: :delete, remote: true do |f| %>
+    <%= f.hidden_field :id, value: @conection.id %>
+    <div>
+      <%= f.submit t(".unfollow"), class: "btn_sign_up"%>
+    </div>
+  <% end %>
+<% else %>
+  <% if @conection.recipient_id == @user.id %>
+    <%= form_for :conection, url: conection_path(@conection.id),  method: :delete, remote: true do |f| %>
+      <%= f.hidden_field :id, value: @conection.id %>
+      <div>
+        <%= f.submit t(".pendding"), class: "btn_sign_up"%>
+      </div>
+    <% end %>
+   <% else %>
+    <%= form_for :conection, url: conection_path(@conection.id),  method: :patch, remote: true do |f| %>
+      <%= f.hidden_field :id, value: @conection.id %>
+      <div>
+        <%= f.submit t(".accept"), class: "btn_sign_up"%>
+      </div>
+    <% end %>
+    <%= form_for :conection, url: conection_path(@conection.id),  method: :delete, remote: true do |f| %>
+      <%= f.hidden_field :id, value: @conection.id %>
+      <div>
+        <%= f.submit t(".deny"), class: "btn_sign_up"%>
+      </div>
+    <% end %>
+   <% end %> 
+<% end %>

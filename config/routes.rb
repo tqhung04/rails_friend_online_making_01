@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   root "users#new"
   resources :blogs
   resources :users
+  resources :conections, only: %i(create update destroy)
 
   mount ActionCable.server => "/cable"
   resources :conversations do

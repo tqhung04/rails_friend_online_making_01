@@ -1,7 +1,13 @@
 class UsersController < ApplicationController
   before_action :correct_user, only: %i(show)
 
-  def show; end
+  def show
+    if logged_in?
+      @conection = Conection.find_follow(current_user.id, @user.id).first
+      @conection? @followed = @conection : @followed = false 
+      @follow = Conection.find_follow(current_user.id, @user.id)
+    end
+  end
 
   def new
     @user = User.new
