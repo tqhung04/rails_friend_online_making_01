@@ -1,0 +1,7 @@
+<%= form_for @current_conversation.messages.build,
+  url: conversation_messages_path(conversation_id: @current_conversation.id), remote: true do |f| %>
+  <%= f.label "Message: " %><br>
+  <%= f.text_field :body, class: "form-control", id: "message_field"%>
+
+  <%= f.submit "send", class: "btn btn-primary", id: "message_btn", style: "display: block"%>
+<% end %>

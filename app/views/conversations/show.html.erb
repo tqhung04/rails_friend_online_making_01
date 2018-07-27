@@ -1,0 +1,70 @@
+<div id="page-contents">
+  <div class="container">
+    <div class="row">
+      <!-- Newsfeed Common Side Bar Left
+      ================================================= -->
+      <div class="col-md-3 static">
+        <div class="profile-card">
+          <%= image_tag("users/user-1.jpg", :class => "profile-photo") %>
+          <h5><a href="timeline.html" class="text-white">Sarah Cruiz</a></h5>
+          <a href="#" class="text-white"><i class="ion ion-android-person-add"></i> 1,299 followers</a>
+        </div><!--profile card ends-->
+        <%= render "template/new_feed_nav_new_feed" %>
+        <div id="chat-block">
+          <div class="title">Chat online</div>
+          <%= render "template/new_feed_online_users" %>
+        </div><!--chat block ends-->
+      </div>
+      <div class="col-md-7">
+        <%= render "template/new_feed_post_create_box" %>
+
+        <!-- Chat Room
+        ================================================= -->
+        <div class="chat-room" id="chat_room" current-conversation-id="<%= @current_conversation.id %>" current-user-id="<%= current_user.id %>">
+          <div  class="row">
+            <div class="col-md-5">
+              <!-- Contact List in Left-->
+              <ul class="nav contact-list scrollbar-wrapper scrollbar-outer" id="conversations-list">
+                <%= render @conversations %>
+              </ul><!--Contact List in Left End-->
+
+            </div>
+            <div class="col-md-7">
+
+              <!--Chat Messages in Right-->
+              <div class="tab-content scrollbar-wrapper wrapper scrollbar-outer" id="messages_scrollbar">
+                <div class="tab-pane active">
+                  <div class="chat-body">
+                    <ul class="chat-message" id="messages-list">
+                      <% @messages.each do |message| %>
+                        <%= render "messages/message", message: message %>
+                      <% end %>
+                     </ul>
+                  </div>
+                </div>
+              </div><!--Chat Messages in Right End-->
+
+              <div class="send-message">
+                <div class="input-group">
+                    <%= render "message_form" %>
+                </div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Newsfeed Common Side Bar Right
+      ================================================= -->
+      <div class="col-md-2 static">
+        <div class="suggestions" id="sticky-sidebar">
+          <%= render "template/new_feed_who_to_follow" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyCTMXfmDn0VlqWIyoOxK8997L-amWbUPiQ&callback=initMap", :defer => "defer", :async => true %>
+<%= javascript_include_tag "messages" %>

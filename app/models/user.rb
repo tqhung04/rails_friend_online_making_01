@@ -12,7 +12,8 @@ class User < ApplicationRecord
   has_many :photos
   has_many :blocks
   has_many :reports
-  has_many :conversations
+  has_many :conversations, foreign_key: :sender_id
+  has_many :messages
 
   ATTRIBUTES_PARAMS = %i(name avatar nick_name genre description hobby
     country status password password_confirmation).freeze

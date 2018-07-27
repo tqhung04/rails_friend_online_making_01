@@ -5,7 +5,11 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version: 2.5.1
+
+* Setup Redis:
+  - Install redis on Ubuntu: `sudo apt install redis-server`
+  - Run server redis: `redis-server`
 
 * System dependencies
 

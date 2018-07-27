@@ -1,0 +1,7 @@
+var messages_list = $('#messages-list');
+var messages_scrollbar = $('#messages_scrollbar');
+
+messages_list.append('<%= j render "message", message: @message, user: current_user %>');
+
+var height = messages_scrollbar[0].scrollHeight;
+messages_scrollbar.scrollTop(height);

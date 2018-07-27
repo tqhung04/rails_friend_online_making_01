@@ -1,5 +1,20 @@
-@import "bootstrap";
-@import "common";
-@import "style";
-@import "ionicons";
-@import "font-awesome";
+@import 'bootstrap';
+@import 'common';
+@import 'style';
+@import 'ionicons';
+@import 'font-awesome';
+
+.chat-room .chat-body ul.chat-message {
+  overflow: hidden;
+}
+
+#message_field {
+  float: left;
+  width: 210px;
+}
+
+#message_btn {
+  float: left;
+  margin-left: 6px;
+  height: 34px
+}
