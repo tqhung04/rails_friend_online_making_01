@@ -9,7 +9,7 @@ $(document).ready(function() {
       $('#messages-list').append(this.renderMessage(data));
 
       // Scroll bottom when a new message appended
-      var messages_scrollbar = $('messages_scrollbar');
+      var messages_scrollbar = $('#messages_scrollbar');
       var height = messages_scrollbar[0].scrollHeight;
       messages_scrollbar.scrollTop(height);
 
