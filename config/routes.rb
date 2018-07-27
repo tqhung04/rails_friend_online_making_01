@@ -29,4 +29,5 @@ Rails.application.routes.draw do
   post "find", to: "strangers#find"
   post "find_stranger", to: "strangers#find_stranger"
   resources :comments
+  resources :transactions, only: %i(index create)
 end

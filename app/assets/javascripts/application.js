@@ -17,3 +17,14 @@ function remove_all_streams() {
   if (App.messages) App.cable.subscriptions.remove(App.messages);
   if (App.strangers) App.cable.subscriptions.remove(App.strangers);
 };
+// Fuction for map initialization
+function readCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}

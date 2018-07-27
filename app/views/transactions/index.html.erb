@@ -1,0 +1,27 @@
+<div id="page-contents">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 static">
+        <div class="profile-card">
+          <%= image_tag("users/user-1.jpg", :class => "profile-photo") %>
+          <h5><a href="timeline.html" class="text-white"><%= t ".name" %></a></h5>
+          <a href="#" class="text-white">
+            <i class="ion ion-android-person-add"></i> <%= t ".follow" %>
+          </a>
+        </div>
+        <%= render "template/new_feed_nav_new_feed" %>
+      </div>
+      <div class="col-md-7">
+        <div class="people-nearby">
+          <%= render "map" %>
+        </div>
+      </div>
+      <div class="col-md-2 static">
+        <div class="suggestions" id="sticky-sidebar">
+          <%= render "template/new_feed_who_to_follow" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= javascript_include_tag "transaction_index" %>

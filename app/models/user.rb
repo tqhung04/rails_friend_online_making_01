@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_one :education
   has_one :config
   has_one :address
+  has_one :local, foreign_key: :user_id, class_name: Transaction.name
   has_many :conections
   has_many :blogs
   has_many :comments

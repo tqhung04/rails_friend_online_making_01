@@ -1,0 +1,37 @@
+<div id="map_local">
+  <div class="google-maps">
+    <div id="map" class="map"></div>
+    <br>
+    <div class="row">
+      <div class="col-md-12 col-sm-12">
+        <button onclick="getLocation()" class="btn btn-success pull-right"><%= t ".find_nearby" %></button>
+      </div>
+    </div>
+  </div>
+  <% @transactions.each do |transaction| %>
+    <div class="nearby-user">
+      <div class="row">
+        <div class="col-md-2 col-sm-2">
+          <%= image_tag("users/user-15.jpg", :class => "profile-photo-lg") %>
+        </div>
+        <div class="col-md-7 col-sm-7">
+          <h5><a href="#" class="profile-link"><%= transaction.name %></a></h5>
+          <p><%= t ".status" %></p>
+          <p class="text-muted"><%= transaction.distance_to(@tran) %></p>
+        </div>
+        <div class="col-md-3 col-sm-3">
+          <button class="btn btn-primary pull-right"><%= t ".add_friend" %></button>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<%= javascript_tag do %>
+  window.tran = <%=raw @tran.to_json %>;
+<% end %>
+
+<%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyCTMXfmDn0VlqWIyoOxK8997L-amWbUPiQ&callback=initMap",
+  :defer => "defer", :async => true %>
+
+<%= javascript_include_tag "map" %>
