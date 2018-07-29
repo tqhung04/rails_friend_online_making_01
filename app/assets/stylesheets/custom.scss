@@ -3,8 +3,7 @@
 @import 'style';
 @import 'ionicons';
 @import 'font-awesome';
-
-$active_li_collor: #662d91;
+@import 'collor';
 
 .chat-room .chat-body ul.chat-message {
   overflow: hidden;
@@ -26,5 +25,43 @@ $active_li_collor: #662d91;
   h6 {
     font-weight: bold;
     color: $active_li_collor
+  }
+}
+
+.loader {
+  border: 4px solid $loader_collor;
+  border-radius: 50%;
+  border-top: 4px solid $loader_border_collor;
+  width: 30px;
+  height: 30px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+form.edit_user {
+  overflow: hidden;
+}
+
+.finding {
+  display: none;
+
+  .loader {
+    float: left !important;
+    margin-right: 10px
+  }
+
+  h4 {
+    padding-top: 6px
   }
 }

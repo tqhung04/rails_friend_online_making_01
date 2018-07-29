@@ -1,0 +1,9 @@
+<%= form_for Message.new, url: talk_path, class: "find_stranger_form",
+  :format => :js, remote: true do |f| %>
+  <%= f.label "Message: " %><br>
+  <%= f.hidden_field(:stream_of, value: stranger.present? ? stranger.id : current_user.id) %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :created_at, value: Time.now %>
+  <%= f.text_field :body, class: "form-control", id: "message_field", required: true %>
+  <%= f.submit "send", class: "btn btn-primary", id: "message_btn", style: "display: block"%>
+<% end %>

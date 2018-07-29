@@ -46,7 +46,7 @@
 
               <div class="send-message">
                 <div class="input-group">
-                    <%= render "message_form" %>
+                    <%= render "messages/message_form" %>
                 </div>
               </div>
             </div>
@@ -66,5 +66,5 @@
   </div>
 </div>
 
-<%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyCTMXfmDn0VlqWIyoOxK8997L-amWbUPiQ&callback=initMap", :defer => "defer", :async => true %>
+<%= javascript_include_tag "channels/messages" %>
 <%= javascript_include_tag "messages" %>
