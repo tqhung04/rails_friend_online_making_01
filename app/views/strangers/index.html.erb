@@ -4,11 +4,7 @@
       <!-- Newsfeed Common Side Bar Left
       ================================================= -->
       <div class="col-md-3 static">
-        <div class="profile-card">
-          <%= image_tag("users/user-1.jpg", :class => "profile-photo") %>
-          <h5><a href="timeline.html" class="text-white">Sarah Cruiz</a></h5>
-          <a href="#" class="text-white"><i class="ion ion-android-person-add"></i> 1,299 followers</a>
-        </div><!--profile card ends-->
+        <%= render "shared/current_user_profile_card" %>
         <%= render "shared/new_feed_nav_new_feed" %>
       </div>
       <div class="col-md-7">

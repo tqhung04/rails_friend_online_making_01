@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   resources :users
   resources :conections, only: %i(create update destroy)
   resources :reports
+  resources :searchs
 
   mount ActionCable.server => "/cable"
   resources :conversations do

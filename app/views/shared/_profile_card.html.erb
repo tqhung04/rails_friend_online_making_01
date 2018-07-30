@@ -1,6 +1,6 @@
 <div class="profile-card">
   <% if @user.avatar.present? %>
-    <%=image_tag @user.avatar_url(:display), :class => "profile-photo" %>
+    <%=image_tag @user.avatar_url(), :class => "profile-photo" %>
   <% end %>
   <h5>
     <%= link_to @user.name, user_path(@user), class: "text-white" %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_03_032943) do
+ActiveRecord::Schema.define(version: 2018_08_06_033737) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
@@ -176,7 +176,7 @@ ActiveRecord::Schema.define(version: 2018_08_03_032943) do
     t.string "password_digest"
     t.string "remember_digest"
     t.boolean "matching", default: false
-    t.boolean "isBlocked", default: false
+    t.boolean "is_blocked", default: false
   end
 
 end

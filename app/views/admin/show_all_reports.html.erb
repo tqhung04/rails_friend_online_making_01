@@ -5,7 +5,7 @@
   <!-- Newsfeed Common Side Bar Left
   ================================================= -->
   <div class="col-md-3 static">
-    <%= render "shared/profile_card" %>
+    <%= render "shared/current_user_profile_card" %>
     <%= render "admin_nav" %>
   </div>
   <div class="col-md-9">
@@ -32,7 +32,7 @@
           <tr>
             <td><%= report.id %></td>
             <td>
-              <% if report.isBlocked? %>
+              <% if report.is_blocked? %>
                 <span class="label label-danger"><%= t "admin.blocked" %></span>
               <% else %>
                 <span class="label label-success"><%= t "admin.available" %></span>

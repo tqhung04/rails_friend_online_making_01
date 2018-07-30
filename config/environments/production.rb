@@ -31,4 +31,8 @@ Rails.application.configure do
   end
 
   config.active_record.dump_schema_after_migration = false
+
+  config.web_socket_server_url = "wss://railsfriendonlinemaking.herokuapp.com/cable"
+
+  config.action_cable.allowed_request_origins = ['https://railsfriendonlinemaking.herokuapp.com', 'http://railsfriendonlinemaking.herokuapp.com']
 end

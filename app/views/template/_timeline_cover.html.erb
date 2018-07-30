@@ -5,7 +5,7 @@
       <div class="col-md-3">
         <div class="profile-info">
           <% if @user.avatar.present? %>
-            <%=image_tag @user.avatar_url(:display), :class => "img-responsive profile-photo" %>
+            <%=image_tag @user.avatar_url(), :class => "img-responsive profile-photo" %>
           <% end %>
           <h3><%= @user.name %></h3>
           <p class="text-muted">Creative Director</p>
