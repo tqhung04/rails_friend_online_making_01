@@ -43,6 +43,10 @@ group :development do
   gem "web-console", ">= 3.3.0"
 end
 
+group :production do
+  gem "mysql2", ">= 0.4.4", "< 0.6.0"
+end
+
 group :test do
   gem "capybara", ">= 2.15", "< 4.0"
   gem "chromedriver-helper"
