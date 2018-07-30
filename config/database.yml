@@ -10,12 +10,9 @@
 #   https://dev.mysql.com/doc/refman/5.7/en/password-hashing.html
 #
 default: &default
-  adapter: mysql2
+  adapter: postgresql
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: b96a178e3aae87
-  password: 60f0db0b
-  socket: /var/run/mysqld/mysqld.sock
 
 development:
   <<: *default
@@ -50,7 +47,4 @@ test:
 #
 production:
   <<: *default
-  url: mysql://b96a178e3aae87:60f0db0b@us-cdbr-iron-east-04.cleardb.net/heroku_c049f72e9df6a94
-  database: heroku_c049f72e9df6a94
-  username: b96a178e3aae87
-  password: 60f0db0b
+  url: <%= ENV['DATABASE_URL'] %>
