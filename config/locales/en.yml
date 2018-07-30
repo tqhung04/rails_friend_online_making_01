@@ -44,10 +44,13 @@ en:
       waiting: "Let's talk!"
   strangers:
     index:
-      finding_msg: "Đang tìm người để trò chuyện..."
+      finding_msg: "Finding stranger..."
     find_stranger:
-      joined_msg: "* Đã có người vào trò chuyện *"
-      system: "Hệ thống"
+      joined_msg: "* Someone just has come into the chat :) *"
+      exit_msg: "* He/She has left the conversation :( *"
+      system: "System"
+      exit: "Exit"
+      exit_confirm: "Do you want to exit this conversation?"
   template:
     chat_with_friends: "Chat with friends"
     chat_with_stranger: "Chat with stranger"
