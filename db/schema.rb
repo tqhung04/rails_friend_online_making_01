@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_29_160441) do
+ActiveRecord::Schema.define(version: 2018_08_02_070210) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
@@ -48,7 +48,17 @@ ActiveRecord::Schema.define(version: 2018_07_29_160441) do
 
   create_table "bodies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "body"
+    t.string "body"
+    t.boolean "status", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "height"
+    t.integer "weight"
+  end
+
+  create_table "careers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "job"
     t.boolean "status", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -74,19 +84,12 @@ ActiveRecord::Schema.define(version: 2018_07_29_160441) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "configs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "user_id"
-    t.string "job"
-    t.boolean "status", default: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "conversations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "recipient_id"
     t.integer "sender_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["recipient_id", "sender_id"], name: "index_conversations_on_recipient_id_and_sender_id", unique: true
   end
 
   create_table "desires", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -100,11 +103,13 @@ ActiveRecord::Schema.define(version: 2018_07_29_160441) do
     t.boolean "status", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "weight_max"
+    t.integer "weight_min"
   end
 
   create_table "educations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "education"
+    t.string "education"
     t.boolean "status", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -157,17 +162,18 @@ ActiveRecord::Schema.define(version: 2018_07_29_160441) do
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
-    t.text "avatar"
+    t.string "avatar", default: "image/upload/v1532933025/kmlpbeifhlzc7webnngd.png"
     t.string "nick_name"
     t.integer "genre"
     t.text "description"
     t.text "hobby"
     t.integer "status", default: 0
-    t.integer "country"
+    t.string "country"
     t.boolean "admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
+    t.string "remember_digest"
     t.boolean "matching", default: false
     t.boolean "isBlocked", default: false
   end

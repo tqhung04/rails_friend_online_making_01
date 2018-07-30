@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   get "/template/timeline_about" => "template#timeline_about"
   get "/template/timeline_album" => "template#timeline_album"
   get "/template/timeline_friends" => "template#timeline_friends"
+  get "/users/:id/show_public", to: "users#show_public"
+  get "/users/:id/show_private", to: "users#show_private"
+  get "/users/:id/show_desire", to: "users#show_desire"
   get "posts/new"
   root "users#new"
   resources :blogs

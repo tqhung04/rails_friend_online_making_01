@@ -1,0 +1,193 @@
+<% provide :title, "Edit user" %>
+<% provide :title, @user.name %>
+
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<div class="container">
+  <!-- Timeline
+  ================================================= -->
+  <div class="timeline">
+    <%= render "template/timeline_cover" %>
+    <div id="page-contents">
+      <div class="row">
+        <div class="col-md- col-md-offset-3">
+          <h1><%= t "users.edit.content" %></h1>
+          <div class="well">
+            <ul class="nav nav-tabs">
+              <li class="active"><a href="#home" data-toggle="tab">
+                <%= t "users.edit.content_login" %></a></li>
+              <li>
+                <a href="#public" data-toggle="tab"><%= t "users.edit.content_public" %></a>
+              </li>
+              <li>
+                <a href="#private" data-toggle="tab"><%= t "users.edit.content_private" %></a>
+              </li>
+              <li>
+                <a href="#desire" data-toggle="tab"><%= t "users.edit.content_desire" %></a>
+              </li>
+            </ul>
+            <div id="myTabContent" class="tab-content">
+              <div class="tab-pane active in" id="home">
+                <%= form_for(@user) do |f| %>
+                  <form id="tab">
+                    <div >
+                      <%= render "shared/error_messages" %>
+                      <h4>Information login</h4>
+                      <%= f.label :name %>
+                      <%= f.text_field :name, class: 'w50' %>
+                      <%= f.label :password %>
+                      <%= f.password_field :password, class: 'w50' %>
+                      <%= f.label :password_confirmation, "Confirmation" %>
+                      <%= f.password_field :password_confirmation, class: 'w50' %>
+                      <div>
+                        <%= f.submit "Save changes", class: "btn btn-primary" %>
+                      </div>
+                    </div>
+                  </form>
+                <% end %>
+              </div>
+              <div class="tab-pane fade" id="public">
+                <%= form_for(@user) do |f| %>
+                  <form id="tab2">
+                    <div>
+                      <h4>Public Information</h4>
+                      <%= f.label :nick_name %>
+                      <%= f.text_field :nick_name, class: 'w50' %>
+                      <%= f.label :genre %>
+                      <p> Male<%= f.radio_button :genre, "male" %> &nbsp;
+                      Female<%= f.radio_button :genre, "female" %></p>
+                      <%= f.label :avatar %>
+                      <span><%= image_tag @user.avatar_url(:display), :class => "img-responsive profile-photo" %></span>
+                      <%= f.file_field :avatar%>
+                      <img id="blah" class="w100" src="#" alt="your image" />
+                      <%= f.label :description %>
+                      <%= f.text_area :description, size: "3x3", class: 'w50' %>
+                      <%= f.label :hobby %>
+                      <%= f.text_area :hobby, size: "3x3", class: 'w50' %>
+                      <%= f.label :country %>
+                      <%= f.text_field :country, class: 'w50' %>
+                      <%= f.label :status %>
+                      <p>
+                        <%= f.select :status, options_for_select([['FA','FA'],['love', 'love'],
+                        ['lovelorn', 'lovelorn'],['marital', 'marital'],['divorced', 'divorced'],
+                        ['seprated', 'seprated']]) %>
+                      </p>
+                      <div>
+                        <%= f.submit "Save changes", class: "btn btn-primary" %>
+                      </div>
+                    </div>
+                  </form>
+                <% end %>
+              </div>
+              <div class="tab-pane fade" id="private">
+                <%= form_for(@user) do |f| %>
+                  <form id="tab3">
+                    <div>
+                      <h4>Private Information</h4>
+                      <%= f.fields_for :email do |email_field| %>
+                        <%= email_field.label :email %>
+                        <%= email_field.text_field :email, class: 'w50' %>
+                        <%= email_field.label :status %>
+                        <p>
+                          Public<%= email_field.radio_button :status, "true" %> &nbsp;
+                          Private<%= email_field.radio_button :status, "false" %>
+                        </p>
+                        <% end %>
+                      <%= f.fields_for :birthday do |b| %>
+                        <%= b.label :birthday %>
+                        <%= b.date_field :birthday, class: 'w50' %>
+                        <%= b.label :status %>
+                        <p>
+                          Public<%= b.radio_button :status, "true" %> &nbsp;
+                          Private<%= b.radio_button :status, "false" %>
+                        </p>
+                        <% end %>
+                      <%= f.fields_for :body do |bo| %>
+                        <%= bo.label :body %>
+                        <%= bo.text_field :body, class: 'w50' %>
+                        <%= bo.label :height %>
+                        <%= bo.text_field :height, class: 'w50' %>
+                        <%= bo.label :weight %>
+                        <%= bo.text_field :weight, class: 'w50' %>
+                        <%= bo.label :status %>
+                        <p>
+                          Public<%= bo.radio_button :status, "true" %> &nbsp;
+                          Private<%= bo.radio_button :status, "false" %>
+                        </p>
+                        <% end %>
+                      <%= f.fields_for :career do |c| %>
+                        <%= c.label :job %>
+                        <%= c.text_field :job, class: 'w50', value: @user.career.job %>
+                        <%= c.label :status %>
+                        <p>
+                          Public<%= c.radio_button :status, "true" %> &nbsp;
+                          Private<%= c.radio_button :status, "false" %>
+                        </p>
+                        <% end %>
+                      <%= f.fields_for :education do |ed| %>
+                        <%= ed.label :education %>
+                        <%= ed.text_field :education, class: 'w50' %>
+                        <%= ed.label :status %>
+                        <p>
+                          Public<%= ed.radio_button :status, "true" %> &nbsp;
+                          Private<%= ed.radio_button :status, "false" %>
+                        </p>
+                        <% end %>
+                      <div>
+                        <%= f.submit "Save changes", class: "btn btn-primary" %>
+                      </div>
+                    </div>
+                  </form>
+                <% end %>
+              </div>
+              <div class="tab-pane fade" id="desire">
+                <%= form_for(@user) do |f| %>
+                  <form id="tab4">
+                    <div>
+                      <h4>Information Desire</h4>
+                      <%= f.fields_for :desire do |de| %>
+                        <%= de.label :status %>
+                        <p>
+                          Public<%= de.radio_button :status, "true" %> &nbsp;
+                          Private<%= de.radio_button :status, "false" %>
+                        </p>
+                        <%= de.label :genre %>
+                        <p>
+                          Male<%= de.radio_button :genre, "male" %> &nbsp;
+                          Female<%= de.radio_button :genre, "female" %>
+                        </p>
+                        <%= de.label :description %>
+                        <%= de.text_area :description, cols: 40, rows: 4, class: 'w50' %>
+                        <%= de.label :age %>
+                        <p>
+                          <%= de.number_field :age_min, min: 18 %> &nbsp; -
+                          <%= de.number_field :age_max, min: 19 %>
+                        </p>
+                        <%= de.label :height %>
+                        <p>
+                          <%= de.number_field :height_min, min: 0 %> &nbsp; -
+                          <%= de.number_field :height_max, min: 0 %> cm
+                        </p>
+                        <%= de.label :weight %>
+                        <p>
+                          <%= de.number_field :weight_min, min: 18 %> &nbsp; -
+                          <%= de.number_field :weight_max, min: 19 %> kg
+                        </p>
+                      <% end %>
+                      <div>
+                      <%= f.submit "Save changes", class: "btn btn-primary" %>
+                      </div>
+                    </div>
+                  </form>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= javascript_include_tag "user_edit" %>

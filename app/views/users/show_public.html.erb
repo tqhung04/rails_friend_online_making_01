@@ -1,0 +1,66 @@
+<% provide :title, @user.name%>
+<div class="container">
+  <!-- Timeline
+  ================================================= -->
+  <div class="timeline">
+    <%= render "template/timeline_cover" %>
+    <div id="page-contents">
+      <div class="row">
+        <div class="col-md-3 user_show_nav">
+          <%= render "layouts/timeline_nav" %>
+        </div>
+        <div class="col-md-7">
+          <div class="about-content-block">
+            <h4 class="grey"><i class="ion-ios-information-outline icon-in-title"></i><%= t "users.show.content" %></h4>
+            <ul  id="nav_show" >
+              <div class="card border-info text-center">
+                <div id="collapseSECOND" class="collapse show" data-parent="#accordion">
+                  <div class="card-body">
+                    <table class="table table-hover group table-striped">
+                      <table class="table table-hover group table-striped">
+                        <tbody>
+                          <tr>
+                          <td><%= t "nick_name" %>:</td>
+                          <td><%= @user.nick_name %></td>
+                         </tr>
+
+                          <tr>
+                          <td><%= t "genre" %>:</td>
+                          <td><%= @user.genre %></td>
+                         </tr>
+
+                          <tr>
+                          <td><%= t "status" %>:</td>
+                          <td><%= @user.status %></td>
+                         </tr>
+
+                          <tr>
+                          <td><%= t "country" %>:</td>
+                          <td><%= @user.country %></td>
+                         </tr>
+
+                          <tr>
+                          <td><%= t "hobby" %>:</td>
+                          <td><%= @user.hobby %></td>
+                         </tr>
+
+                          <tr>
+                          <td><%= t "description" %>:</td>
+                          <td><%= @user.description %></td>
+                         </tr>
+                        </tbody>
+                      </table>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-2 static">
+          <%= render "template/timeline_activity" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

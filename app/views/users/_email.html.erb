@@ -1,0 +1,11 @@
+<%provide :title, @user.name %>
+<% @email = Email.find_by user_id: @user.id %>
+<% email = @email.email %>
+<p>
+  <% if @email.status? %>
+    <%= "Private" %>
+  <% else %>
+    <%= "Public" %>
+  <% end %>
+</p>
+<%= email %>

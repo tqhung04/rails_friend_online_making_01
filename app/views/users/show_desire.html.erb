@@ -1,0 +1,28 @@
+<% provide :title, @user.name%>
+<div class="container">
+  <!-- Timeline
+  ================================================= -->
+  <div class="timeline">
+    <%= render "template/timeline_cover" %>
+    <div id="page-contents">
+      <div class="row">
+        <div class="col-md-3 user_show_nav">
+          <%= render "layouts/timeline_nav" %>
+        </div>
+        <div class="col-md-7">
+          <div class="about-content-block">
+            <h4 class="grey"><i class="ion-ios-information-outline icon-in-title"></i><%= t "users.show.content_desire" %></h4>
+            <ul>
+              <div class="organization" >
+                <%= render "desire"%>
+              </div>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-2 static">
+          <%= render "template/timeline_activity" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

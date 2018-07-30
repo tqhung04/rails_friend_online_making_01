@@ -1,0 +1,10 @@
+<%provide :title, @user.name %>
+<% @career = Career.find_by user_id: @user.id %>
+<p><span class="text-grey">
+  <% if @career.status? %>
+    <%= "Private" %>
+  <% else %>
+    <%= "Public" %>
+  <% end %>
+</span></p>
+<%= @career.job %>

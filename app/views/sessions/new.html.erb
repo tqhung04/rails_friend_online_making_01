@@ -20,11 +20,17 @@
           id: "example-password", placeholder: t(".password") %>
         <% end %>
 
+        <%= f.label :remember_me, class: "checkbox inline" do %>
+        <%= f.check_box :remember_me %>
+        <span>Remember me on this computer</span>
+        <% end %>
         <%= f.submit t("log_in"), class: "btn-secondary" %>
         <% end %>
       </div>
+      <div>
       <p>Already have an account?<%= link_to "Sign up now!", signup_path %></p>
       <%= image_tag("bottom-shadow.png", :class => "form_shadow") %>
+      </div>
     </div><!-- Sign Up Form End -->
 
     <svg class="arrows hidden-xs hidden-sm">

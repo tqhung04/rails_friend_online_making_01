@@ -1,0 +1,23 @@
+<%provide :title, @user.name %>
+<% @bodies = Body.find_by user_id: @user.id %>
+<p><span class="text-grey">
+  <%if @bodies.status? %>
+    <%= "Private" %>
+  <% else %>
+    <%= "Public" %>
+  <% end %>
+</span></p>
+<ul id="nav_show">
+  <div>
+    <h5 style="color: #b3ca49">Body</h5>
+    <p><span class="text-grey"><%= @bodies.body %></span></p>
+  </div>
+  <div>
+    <h5 style="color: #b3ca49">Weight</h5>
+    <p><span class="text-grey"><%= @bodies.weight %></span></p>
+  </div>
+  <div>
+    <h5 style="color: #b3ca49">Height</h5>
+    <p><span class="text-grey"><%= @bodies.height %></span></p>
+  </div>
+</ul>
