@@ -8,7 +8,6 @@ gem "bootsnap", ">= 1.1.0", require: false
 gem "bootstrap-sass", "~> 3.3.7"
 gem "coffee-rails", "~> 4.2"
 gem "jbuilder", "~> 2.5"
-gem "mysql2", ">= 0.4.4", "< 0.6.0"
 gem "puma", "~> 3.11"
 gem "rails", "~> 5.2.0"
 gem "turbolinks", "~> 5"
@@ -44,7 +43,8 @@ group :development do
 end
 
 group :production do
-  gem "mysql2", ">= 0.4.4", "< 0.6.0"
+  gem "mysql2"
+  gem "activerecord-mysql2-adapter"
 end
 
 group :test do
