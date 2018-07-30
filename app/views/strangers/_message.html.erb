@@ -1,0 +1,14 @@
+<li class="<%= message.user_id == current_user.id ? 'right' : 'left' %> w100">
+  <% if message.user_id == current_user.id %>
+    <%= image_tag("users/user-1.jpg", class: "profile-photo-sm pull-right") %>
+  <% else %>
+    <%= image_tag("users/user-1.jpg", class: "profile-photo-sm pull-left") %>
+  <% end %>
+  <div class="chat-item">
+    <div class="chat-item-header">
+      <h5></h5>
+      <small class="text-muted"><%= time_ago_in_words(message.created_at) %></small>
+    </div>
+    <p><%= message.body %></p>
+  </div>
+</li>

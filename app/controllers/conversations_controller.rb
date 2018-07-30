@@ -27,6 +27,6 @@ class ConversationsController < ApplicationController
   def get_current_conversation
     @current_conversation = Conversation.find_by id: params[:id]
 
-    redirect_to root_url if @current_conversation.nil?
+    redirect_to action: :index if @current_conversation.nil?
   end
 end

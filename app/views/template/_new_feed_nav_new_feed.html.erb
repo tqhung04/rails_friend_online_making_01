@@ -9,7 +9,10 @@
     <%= link_to "Friends", controller: "template", action: "new_feed_friends" %>
   </div></li>
   <li><i class="icon ion-chatboxes"></i><div>
-    <%= link_to "Messages", controller: "template", action: "new_feed_messages" %>
+    <%= link_to t "template.chat_with_friends", controller: "conversations", action: "index" %>
+  </div></li>
+  <li><i class="icon ion-chatboxes"></i><div>
+    <%= link_to t "template.chat_with_stranger", controller: "strangers", action: "index" %>
   </div></li>
   <li><i class="icon ion-images"></i><div>
     <a href="#">Images</a>

@@ -23,4 +23,9 @@ Rails.application.routes.draw do
   resources :conversations do
     resources :messages, only: [:index, :new, :create]
   end
+
+  get "talk", to: "strangers#index"
+  post "talk", to: "strangers#talk"
+  post "find", to: "strangers#find"
+  post "find_stranger", to: "strangers#find_stranger"
 end

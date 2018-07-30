@@ -1,0 +1,71 @@
+$(document).ready(function() {
+  var started = false;
+  var current_user_id = <%= current_user.id %>;
+  var stream_of = <%= @stranger.present? ? @stranger.id : current_user.id %>;
+  App.strangers = App.cable.subscriptions.create(
+  {
+    channel: 'StrangersChannel',
+    user_id: <%= @stranger.present? ? @stranger.id : current_user.id %>,
+  },
+  {
+    received: function(data) {
+      // Notice to owner
+      if(data.matching == true && started == false) {
+        $('#send-message').append('<%= j render "message_form", stranger: @stranger %>');
+        setTimeout(function(){
+          $.ajax({
+            url: $('form#new_message').action,
+            headers: {
+              Accept : 'text/javascript; charset=utf-8',
+              'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+            },
+            type: 'POST',
+            data: {
+              message : {
+                isSystem: true, // For first system's message
+                user_id: current_user_id,
+                body: '<%= t("strangers.find_stranger.joined_msg") %>',
+                stream_of: stream_of,
+                created_at: new Date()
+              }
+            },
+          });
+          $('.finding').hide();
+          $('.edit_user').hide();
+        },1000);
+        started = true;
+      }
+
+      // Notice to participant
+      if(data.sender_id != <%= current_user.id %> && started == false) {
+        $('.finding').hide();
+        $('.edit_user').hide();
+        $('#send-message').append('<%= j render "message_form", stranger: @stranger %>');
+        started = true;
+      }
+
+      // Show message
+      if(started == true) {
+        $('#messages-list').append(this.renderMessage(data));
+      }
+
+      // Scroll bottom when a new message appended
+      var messages_scrollbar = $('#messages_scrollbar');
+      var height = messages_scrollbar[0].scrollHeight;
+      messages_scrollbar.scrollTop(height);
+
+      // Clear field after submit
+      $('#message_field').val('');
+    },
+
+    renderMessage: function(data) {
+      var currrent_user_id = $('#chat_room').attr('current-user-id');
+      if (data.sender_id == 0) {
+        return '<li class="w100"><div class="chat-item"><div class="alert alert-success"><strong>[<%= t("strangers.find_stranger.system") %>]</strong> '+ data.body + '</div></div></li>';
+      } else if (currrent_user_id == data.sender_id) {
+        return data.message_for_sender;
+      }
+      return data.message_for_recipient;
+    }
+  });
+})

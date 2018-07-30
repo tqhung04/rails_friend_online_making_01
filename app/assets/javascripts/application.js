@@ -8,7 +8,5 @@
 //= require script
 //= require turbolinks
 //= require bootstrap
-//= require action_cable
 //= require_self
-//= require_tree .
-//= require_tree ./channels
+//= require cable

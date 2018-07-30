@@ -20,13 +20,11 @@ class MessagesController < ApplicationController
       )
 
       ActionCable.server.broadcast "conversation_#{@conversation.id}",
-      {
         message_for_recipient: @message_for_recipient,
         message_for_sender: @message_for_sender,
         sender_id: current_user.id,
         conversation_id: @conversation.id,
         body: @message.body
-      }
     end
   end
 
