@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   get "/template/timeline_album" => "template#timeline_album"
   get "/template/timeline_friends" => "template#timeline_friends"
   get "posts/new"
-  resources :users
+  root "users#new"
   resources :blogs
   resources :users
 
@@ -28,4 +28,5 @@ Rails.application.routes.draw do
   post "talk", to: "strangers#talk"
   post "find", to: "strangers#find"
   post "find_stranger", to: "strangers#find_stranger"
+  resources :comments
 end

@@ -1,4 +1,7 @@
 //= require jquery
+//= require jquery3
+//= require turbolinks
+//= require rails-ujs
 //= require jquery.appear.min
 //= require jquery.incremental-counter
 //= require jquery.scrollbar.min
@@ -6,7 +9,6 @@
 //= require masonry.pkgd.min
 //= require rails-ujs
 //= require script
-//= require turbolinks
 //= require bootstrap
 //= require_self
 //= require cable
