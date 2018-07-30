@@ -1,0 +1,66 @@
+<div id="page-contents">
+<div class="container">
+<div class="row">
+
+  <!-- Newsfeed Common Side Bar Left
+  ================================================= -->
+  <div class="col-md-3 static">
+    <div class="profile-card">
+      <%= image_tag("users/user-1.jpg", :class => "profile-photo") %>
+      <h5><a href="timeline.html" class="text-white">Sarah Cruiz</a></h5>
+      <a href="#" class="text-white"><i class="ion ion-android-person-add"></i> 1,299 followers</a>
+    </div><!--profile card ends-->
+    <%= render "admin_nav" %>
+  </div>
+  <div class="col-md-9">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>
+            <% if params[:status] != "blocked" %>
+              <%= link_to t("admin.status"), params.merge(status: "blocked") %>
+            <% else %>
+              <%= link_to t("admin.status"), params.merge(status: "available") %>
+            <% end %>
+          </th>
+          <th><%= t "admin.name" %></th>
+          <th><%= t "admin.avatar" %></th>
+          <th><%= t "admin.reported_at" %></th>
+          <th>
+            <% if params[:order] == "asc" %>
+              <%= link_to t("admin.order"), params.merge(order: "desc") %>
+            <% else  %>
+              <%= link_to t("admin.order"), params.merge(order: "asc") %>
+            <% end %>
+          </th>
+          <th><%= t "admin.action" %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @be_reported_users.each do |user| %>
+          <tr>
+            <td><%= user.id %></td>
+            <td>
+              <% if user.isBlocked? %>
+                <span class="label label-danger"><%= t "admin.blocked" %></span>
+              <% else %>
+                <span class="label label-success"><%= t "admin.available" %></span>
+              <% end %>
+            </td>
+            <td><%= user.name %></td>
+            <td><%= image_tag("users/user-1.jpg", :class => "profile-photo-admin") %></td>
+            <td><%= user.created_at %></td>
+            <td><%= user.total %></td>
+            <td><%= link_to t(".edit"), edit_user_path(user) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <!-- Pagination -->
+    <%= paginate @be_reported_users %>
+  </div>
+</div>
+</div>
+</div>

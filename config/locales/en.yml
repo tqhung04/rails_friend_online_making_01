@@ -7,6 +7,7 @@ en:
   log_out: "Log out"
   log_in: " Login "
   submit: "Submit"
+  edit: "Edit"
   users:
     new:
       sign_up: "Sign up"
@@ -54,3 +55,16 @@ en:
   template:
     chat_with_friends: "Chat with friends"
     chat_with_stranger: "Chat with stranger"
+  report:
+    create_failed_msg: "Failed to report"
+  admin:
+    newfeed: "Newfeed"
+    reported: "Reported"
+    status: "Status"
+    name: "Name"
+    avatar: "Avatar"
+    reported_at: "Reported at"
+    order: "Order"
+    action: "Action"
+    blocked: "Blocked"
+    available: "Available"

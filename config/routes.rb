@@ -19,10 +19,11 @@ Rails.application.routes.draw do
   resources :blogs
   resources :users
   resources :conections, only: %i(create update destroy)
+  resources :reports, only: %i(create)
 
   mount ActionCable.server => "/cable"
   resources :conversations do
-    resources :messages, only: [:index, :new, :create]
+    resources :messages, only: %i(index new create)
   end
 
   get "talk", to: "strangers#index"
@@ -31,4 +32,6 @@ Rails.application.routes.draw do
   post "find_stranger", to: "strangers#find_stranger"
   resources :comments
   resources :transactions, only: %i(index create)
+  get "admin", to: "admin#reported"
+  get "admin/reported", to: "admin#reported"
 end
