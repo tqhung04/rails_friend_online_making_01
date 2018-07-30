@@ -74,7 +74,7 @@
                       <p>
                         <%= f.select :status, options_for_select([['FA','FA'],['love', 'love'],
                         ['lovelorn', 'lovelorn'],['marital', 'marital'],['divorced', 'divorced'],
-                        ['seprated', 'seprated']]) %>
+                        ['seprated', 'seprated']],@user.status) %>
                       </p>
                       <div>
                         <%= f.submit "Save changes", class: "btn btn-primary" %>

@@ -17,13 +17,13 @@
             <%= link_to "Timeline", {controller: "template", action: "timeline"}, class: "active" %>
           </li>
           <li>
-            <%= link_to "About", controller: "template", action: "timeline_about" %>
+            <%= link_to "About", user_path %>
           </li>
           <li>
             <%= link_to "Album", controller: "template", action: "timeline_album" %>
           </li>
           <li>
-            <%= link_to "Friends", controller: "template", action: "timeline_friends" %>
+            <%= link_to "Friends", controller: "users", action: "timeline_friends" %>
           </li>
         </ul>
         <ul class="follow-me list-inline">

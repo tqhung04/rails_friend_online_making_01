@@ -16,6 +16,7 @@ class User < ApplicationRecord
   has_many :reports, foreign_key: :user_id
   has_many :conversations, foreign_key: :sender_id
   has_many :messages
+  has_many :conection
 
   enum genre: {male: 0, female: 1}
   enum status: {
@@ -43,6 +44,13 @@ class User < ApplicationRecord
     up.accepts_nested_attributes_for :desire
     up.accepts_nested_attributes_for :education
   end
+  accepts_nested_attributes_for :email, update_only: true
+  accepts_nested_attributes_for :birthday, update_only: true
+  accepts_nested_attributes_for :body, update_only: true
+  accepts_nested_attributes_for :career, update_only: true
+  accepts_nested_attributes_for :desire, update_only: true
+  accepts_nested_attributes_for :education, update_only: true
+  accepts_nested_attributes_for :conection
 
   def turn_on_matching
     update_columns(matching: true)

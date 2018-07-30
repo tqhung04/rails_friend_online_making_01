@@ -1,14 +1,17 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: %i(edit update show)
-  before_action :correct_user, only: %i(show edit update show_desire show_public show_private)
+  before_action :correct_user, only: %i(show edit update show_desire show_public
+    show_private timeline_friends)
   before_action :user_params, only: :update
+  before_action :relationship, only: %i(show show_private show_desire show_public
+    timeline_friends)
+  before_action :check_right, only: %i(show_desire show_private)
+
+  def timeline_friends
+    @user.conections
+  end
 
   def show
-    if logged_in?
-      @conection = Conection.find_follow(current_user.id, @user.id).first
-      @conection? @followed = @conection : @followed = false
-      @follow = Conection.find_follow(current_user.id, @user.id)
-    end
     render :show_public
   end
 
@@ -137,5 +140,17 @@ class UsersController < ApplicationController
     return if @local.save
     @user.destroy
     redirect_to root_url
+  end
+
+  def relationship
+    if logged_in?
+      @conection = Conection.find_follow(current_user.id, @user.id).first
+      @conection? @followed = @conection : @followed = false
+    end
+  end
+
+  def check_right
+    return if @conection&.status
+    render :show_public
   end
 end

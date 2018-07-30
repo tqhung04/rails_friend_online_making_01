@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get "/users/:id/show_public", to: "users#show_public"
   get "/users/:id/show_private", to: "users#show_private"
   get "/users/:id/show_desire", to: "users#show_desire"
+  get "/users/:id/timeline_friends", to: "users#timeline_friends"
   get "posts/new"
   root "users#new"
   resources :blogs

@@ -1,0 +1,75 @@
+<% provide :title, @user.name %>
+<div class="container">
+
+  <!-- Timeline
+  ================================================= -->
+  <div class="timeline">
+    <%= render "template/timeline_cover" %>
+    <div id="page-contents">
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-7">
+
+          <!-- Friend List
+          ================================================= -->
+          <div class="friend-list">
+            <div class="row">
+              <h4><%= t ".following" %></h4>
+              <% co = @user.conections.all.ids %>
+              <% count = @user.conections.count %>
+              <% for i in 0..count-1 %>
+                <% conection = Conection.find_by id: co[i] %>
+                <% if conection.status?%>
+                  <% u = User.find_by id: conection.recipient_id %>
+                  <div class="col-md-6 col-sm-6">
+                    <div class="friend-card">
+                      <%= image_tag("covers/1.jpg", :class => "img-responsive cover") %>
+                      <div class="card-info">
+                        <%= image_tag u.avatar_url(:display), :class => "profile-photo-lg" %>
+                        <div class="friend-info">
+                          <a href="#" class="pull-right text-green">My Friend</a>
+                          <h5><a href="timeline.html" class="profile-link"><%= u.name %></a></h5>
+                          <p><%= u.nick_name %></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+
+            <div class="row">
+              <h4><%= t ".followed" %></h4>
+              <% co = Conection.all.ids %>
+              <% count = Conection.count %>
+              <% for i in 0..count-1 %>
+                <% conection = Conection.find_by id: co[i] %>
+                <% if conection.status? %>
+                  <% if @user.id == conection.recipient_id %>
+                    <% u = User.find_by id: conection.sender_id %>
+                    <div class="col-md-6 col-sm-6">
+                      <div class="friend-card">
+                        <%= image_tag("covers/1.jpg", :class => "img-responsive cover") %>
+                        <div class="card-info">
+                          <%= image_tag u.avatar_url(:display), :class => "profile-photo-lg" %>
+                          <div class="friend-info">
+                            <a href="#" class="pull-right text-green">My Friend</a>
+                            <h5><a href="timeline.html" class="profile-link"><%= u.name %></a></h5>
+                            <p><%= u.nick_name %></p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2 static">
+          <%= render "template/timeline_activity" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
