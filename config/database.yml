@@ -52,5 +52,5 @@ production:
   <<: *default
   url: <%= ENV['DATABASE_URL'] %>
   database: rails_friend_online_making_01_production
-  username: rails_friend_online_making_01
-  password: <%= ENV['RAILS_FRIEND_ONLINE_MAKING_01_DATABASE_PASSWORD'] %>
+  username: b96a178e3aae87
+  password: 60f0db0b %>
