@@ -9,7 +9,7 @@
           <h5><a href="timeline.html" class="text-white">Sarah Cruiz</a></h5>
           <a href="#" class="text-white"><i class="ion ion-android-person-add"></i> 1,299 followers</a>
         </div><!--profile card ends-->
-        <%= render "template/new_feed_nav_new_feed" %>
+        <%= render "layouts/new_feed_nav_new_feed" %>
         <div id="chat-block">
           <div class="title">Chat online</div>
           <%= render "template/new_feed_online_users" %>
@@ -44,13 +44,28 @@
             </div><!--Chat Messages in Right End-->
 
               <div class="send-message" id="send-message">
-                <div class="input-group">
-                </div>
+                <button class="btn btn-danger pull-right" id="stranger_exit_btn" data-toggle="modal" data-target="#exitModal"><%= t "strangers.finder_stanger.exit" %></button>
               </div>
             </div>
             <div class="clearfix"></div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exitModal" role="dialog">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"><%= t "strangers.find_stranger.exit_confirm" %></h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger pull-left" data-dismiss="modal" id="stranger_exit_btn_yes">Exit</button>
+        <button type="button" class="btn btn-default pull-right" data-dismiss="modal">No</button>
       </div>
     </div>
   </div>

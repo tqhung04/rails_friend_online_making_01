@@ -69,3 +69,28 @@ form.edit_user {
 .txt_align_left {
   text-align: left !important;
 }
+
+.btn-danger {
+  color: $white !important;
+  background-color: $danger_collor !important;
+  border-color: $danger_border_collor !important;
+}
+
+.send-message {
+  overflow: hidden;
+}
+
+#stranger_exit_btn {
+  display:none;
+}
+
+#exitModal {
+  top: 25%
+}
+
+.chat-item {
+
+  .alert {
+    overflow: hidden;
+  }
+}

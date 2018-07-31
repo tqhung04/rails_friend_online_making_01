@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  remove_all_streams();
   App.messages = App.cable.subscriptions.create(
   {
     channel: 'MessagesChannel',

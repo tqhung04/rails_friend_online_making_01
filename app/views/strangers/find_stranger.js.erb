@@ -2,6 +2,7 @@ $(document).ready(function() {
   var started = false;
   var current_user_id = <%= current_user.id %>;
   var stream_of = <%= @stranger.present? ? @stranger.id : current_user.id %>;
+
   App.strangers = App.cable.subscriptions.create(
   {
     channel: 'StrangersChannel',
@@ -12,6 +13,7 @@ $(document).ready(function() {
       // Notice to owner
       if(data.matching == true && started == false) {
         $('#send-message').append('<%= j render "message_form", stranger: @stranger %>');
+        $('#stranger_exit_btn').show();
         setTimeout(function(){
           $.ajax({
             url: $('form#new_message').action,
@@ -41,6 +43,7 @@ $(document).ready(function() {
         $('.finding').hide();
         $('.edit_user').hide();
         $('#send-message').append('<%= j render "message_form", stranger: @stranger %>');
+        $('#stranger_exit_btn').show();
         started = true;
       }
 
@@ -68,4 +71,26 @@ $(document).ready(function() {
       return data.message_for_recipient;
     }
   });
+
+  $('#stranger_exit_btn_yes').on('click', function() {
+    if (App.strangers) App.cable.subscriptions.remove(App.strangers);
+    $.ajax({
+      url: $('form#new_message').action,
+      headers: {
+        Accept : 'text/javascript; charset=utf-8',
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+      },
+      type: 'POST',
+      data: {
+        message : {
+          isSystem: true,
+          user_id: current_user_id,
+          body: '<%= t("strangers.find_stranger.exit_msg") %>',
+          stream_of: stream_of,
+          created_at: new Date()
+        }
+      },
+    });
+    location.reload();
+  })
 })

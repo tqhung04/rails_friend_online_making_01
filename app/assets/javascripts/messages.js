@@ -3,4 +3,3 @@ $(document).ready(function() {
   var height = messages_scrollbar[0].scrollHeight;
   messages_scrollbar.scrollTop(height);
 })
-
