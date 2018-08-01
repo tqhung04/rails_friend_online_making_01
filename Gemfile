@@ -18,8 +18,8 @@ gem "ionicons-rails"
 gem "font-awesome-rails"
 gem "sass-rails", ">= 3.2"
 gem "bootstrap-sass", "~> 3.3.7"
-gem "bcrypt"
 gem "redis"
+gem "geocoder"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
