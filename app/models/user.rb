@@ -18,9 +18,9 @@ class User < ApplicationRecord
 
   ATTRIBUTES_PARAMS = %i(name avatar nick_name genre description hobby
     country status password password_confirmation matching).freeze
-  validates :name, presence: true, length: {maximum: 50}
+  validates :name, presence: true, length: {maximum: Settings.maximum.length_name}
   has_secure_password
-  validates :password, presence: true, length: {minimum: 6}
+  validates :password, presence: true, length: {minimum: Settings.minimum.length_password}
 
   def turn_on_matching
     update_columns(matching: true)
