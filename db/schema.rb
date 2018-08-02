@@ -169,6 +169,7 @@ ActiveRecord::Schema.define(version: 2018_07_29_160441) do
     t.datetime "updated_at", null: false
     t.string "password_digest"
     t.boolean "matching", default: false
+    t.boolean "isBlocked", default: false
   end
 
 end

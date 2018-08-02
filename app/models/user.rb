@@ -12,7 +12,7 @@ class User < ApplicationRecord
   has_many :comments
   has_many :photos
   has_many :blocks
-  has_many :reports
+  has_many :reports, foreign_key: :user_id
   has_many :conversations, foreign_key: :sender_id
   has_many :messages
 
