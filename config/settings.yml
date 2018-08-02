@@ -1,0 +1,21 @@
+pagination:
+  user: 25
+  report: 50
+maximum:
+  length_email: 255
+  length_name: 50
+  length_micropost_content: 140
+  length_report_description: 500
+  length_megabytes_image: 5
+  resize_to_limit: 400
+minimum:
+  length_password: 6
+  length_email: 6
+  length_name: 6
+size:
+  gravatar: 80
+  gravatar_micropost: 50
+page:
+  per_page: 10
+password_reset:
+  expired: 2
