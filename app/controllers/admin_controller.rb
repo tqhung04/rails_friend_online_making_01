@@ -1,8 +1,12 @@
 class AdminController < ApplicationController
-  before_action :logged_in_user, :isAdmin?, only: %i(reported)
+  before_action :logged_in_user, :isAdmin?, only: %i(show_all_reports show_unique_reports show)
 
-  def reported
-    @be_reported_users = Report.join_with_users.page(params[:page]).per(Settings.pagination.report)
+  def show_all_reports
+    @be_reported_users = Report.join_with_user.select_report.page(params[:page]).per Settings.pagination.report
+  end
+
+  def show_unique_reports
+    @be_reported_users = Report.get_unique_reported.page(params[:page]).per Settings.pagination.report
     status = params["status"]
     order = params["order"]
 
@@ -18,6 +22,11 @@ class AdminController < ApplicationController
       @be_reported_users = @be_reported_users.order("COUNT(reports.reported_id) DESC");
     end
   end
+
+  def show
+    @report = Report.get_unique_reported.where_reported_id(params[:id]).page(params[:page]).per Settings.pagination.report
+  end
+
   private
 
   def isAdmin?
