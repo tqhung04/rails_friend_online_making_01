@@ -7,6 +7,7 @@ en:
   log_out: "Log out"
   log_in: " Login "
   submit: "Submit"
+  edit: "Edit"
   users:
     new:
       sign_up: "Sign up"
@@ -54,3 +55,5 @@ en:
   template:
     chat_with_friends: "Chat with friends"
     chat_with_stranger: "Chat with stranger"
+  report:
+    create_failed_msg: "Failed to report"

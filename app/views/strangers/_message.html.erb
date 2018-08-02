@@ -1,8 +1,8 @@
 <li class="<%= message.user_id == current_user.id ? 'right' : 'left' %> w100">
   <% if message.user_id == current_user.id %>
-    <%= image_tag("avatar-default", class: "profile-photo-sm pull-right") %>
+    <%= image_tag("avatar-default.png", class: "profile-photo-sm pull-right") %>
   <% else %>
-    <%= image_tag("avatar-default", class: "profile-photo-sm pull-left") %>
+    <%= image_tag("avatar-default.png", class: "profile-photo-sm pull-left") %>
   <% end %>
   <div class="chat-item">
     <div class="chat-item-header">

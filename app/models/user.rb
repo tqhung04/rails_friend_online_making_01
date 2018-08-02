@@ -12,15 +12,15 @@ class User < ApplicationRecord
   has_many :comments
   has_many :photos
   has_many :blocks
-  has_many :reports
+  has_many :reports, foreign_key: :user_id
   has_many :conversations, foreign_key: :sender_id
   has_many :messages
 
   ATTRIBUTES_PARAMS = %i(name avatar nick_name genre description hobby
-    country status password password_confirmation matching).freeze
-  validates :name, presence: true, length: {maximum: 50}
+    country status password password_confirmation matching isBlocked).freeze
+  validates :name, presence: true, length: {maximum: Settings.maximum.length_name}
   has_secure_password
-  validates :password, presence: true, length: {minimum: 6}
+  validates :password, presence: true, length: {minimum: Settings.minimum.length_email}, allow_nil: true
 
   def turn_on_matching
     update_columns(matching: true)

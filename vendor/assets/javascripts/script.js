@@ -26,15 +26,15 @@ jQuery(document).ready(function($) {
     });
 
     //For Header Appearing in Homepage on Scrolling
-    var lazy = $('#header.lazy-load')
+    // var lazy = $('#header.lazy-load');
 
-    $(window).on('scroll', function() {
-        if ($(this).scrollTop() > 50) {
-            lazy.addClass('visible');
-        } else {
-            lazy.removeClass('visible');
-        }
-    });
+    // $(window).on('scroll', function() {
+    //     if ($(this).scrollTop() > 50) {
+    //         lazy.addClass('visible');
+    //     } else {
+    //         lazy.removeClass('visible');
+    //     }
+    // });
 
     //Initiate Scroll Styling
     if ($.isFunction($.fn.scrollbar))
