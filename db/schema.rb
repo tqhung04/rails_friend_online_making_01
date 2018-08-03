@@ -163,17 +163,18 @@ ActiveRecord::Schema.define(version: 2018_08_03_032943) do
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
-    t.text "avatar"
+    t.string "avatar", default: "image/upload/v1532933025/kmlpbeifhlzc7webnngd.png"
     t.string "nick_name"
     t.integer "genre"
     t.text "description"
     t.text "hobby"
     t.integer "status", default: 0
-    t.integer "country"
+    t.string "country"
     t.boolean "admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
+    t.string "remember_digest"
     t.boolean "matching", default: false
     t.boolean "isBlocked", default: false
   end

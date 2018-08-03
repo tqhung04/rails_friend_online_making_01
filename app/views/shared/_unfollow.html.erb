@@ -10,7 +10,7 @@
     <%= form_for :conection, url: conection_path(@conection.id),  method: :delete, remote: true do |f| %>
       <%= f.hidden_field :id, value: @conection.id %>
       <div>
-        <%= f.submit t(".pendding"), class: "btn_sign_up"%>
+        <%= f.submit t(".pendding"), class: "btn btn-warning btn_sign_up"%>
       </div>
     <% end %>
    <% else %>
@@ -26,5 +26,5 @@
         <%= f.submit t(".deny"), class: "btn_sign_up"%>
       </div>
     <% end %>
-   <% end %> 
+   <% end %>
 <% end %>

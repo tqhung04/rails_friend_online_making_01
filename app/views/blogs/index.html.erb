@@ -2,10 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-3 static">
-        <div class="profile-card">
-          <%= image_tag("users/user-1.jpg", class: "profile-photo") %>
-          <h5><a href="timeline.html" class="text-white"><%= current_user %></a></h5>
-        </div>
+        <%= render "shared/profile_card" %>
         <%= render "template/new_feed_nav_new_feed" %>
       </div>
       <div class="col-md-7">
