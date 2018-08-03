@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root :to => "template#new_feed"
+  root :to => "blogs#index"
   get "/signup", to: "users#new"
   post "/signup", to: "users#create"
   get "/login", to: "sessions#new"

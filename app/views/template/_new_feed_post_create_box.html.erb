@@ -1,23 +1,36 @@
-<!-- Post Create Box
-================================================= -->
 <div class="create-post">
   <div class="row">
-    <div class="col-md-7 col-sm-7">
+    <div class="col-md-10 col-sm-10">
       <div class="form-group">
         <%= image_tag("users/user-1.jpg", :class => "profile-photo-md") %>
-        <textarea name="texts" id="exampleTextarea" cols="30" rows="1" class="form-control" placeholder="Write what you wish"></textarea>
+        <textarea data-toggle="modal" data-target="#squarespaceModal" name="texts" id="exampleTextarea" cols="50" rows="1" class="form-control"></textarea>
       </div>
     </div>
-    <div class="col-md-5 col-sm-5">
+    <div class="col-md-2 col-sm-2">
       <div class="tools">
-        <ul class="publishing-tools list-inline">
-          <li><a href="#"><i class="ion-compose"></i></a></li>
-          <li><a href="#"><i class="ion-images"></i></a></li>
-          <li><a href="#"><i class="ion-ios-videocam"></i></a></li>
-          <li><a href="#"><i class="ion-map"></i></a></li>
-        </ul>
         <button class="btn btn-primary pull-right">Publish</button>
       </div>
     </div>
   </div>
 </div><!-- Post Create Box End-->
+
+<div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only"><%= t ".close" %></span></button>
+      <h3 class="modal-title" id="lineModalLabel"><%= t ".new_blog" %></h3>
+    </div>
+    <div class="modal-body">
+        <%= form_for :blog, url: blogs_path do |f| %>
+          <%= f.label :body %>
+          <%= f.text_area :body, cols: 30, rows: 10, class: "form-control" %>
+          <%= f.label :avatar %>
+          <%= f.file_field :photo%>
+          <hr>
+          <%= f.submit t("submit"), class: "btn btn-primary" %>
+        <% end %>
+    </div>
+  </div>
+  </div>
+</div>

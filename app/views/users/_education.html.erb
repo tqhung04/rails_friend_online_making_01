@@ -1,10 +1,10 @@
 <%provide :title, @user.name %>
 <% @education = Education.find_by user_id: @user.id %>
 <p><span class="text-grey">
-  <% if @education.status? %>
+  <% if @education&.status? %>
     <%= "Private" %>
   <% else %>
     <%= "Public" %>
   <% end %>
 </span></p>
-<%= @education.education %>
+<%= @education&.education %>
