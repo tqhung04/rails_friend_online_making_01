@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get "/template/new_feed_friends" => "template#new_feed_friends"
   get "/template/new_feed_messages" => "template#new_feed_messages"
   get "/template/new_feed_find_people" => "template#new_feed_find_people"
+  post "/template/new_feed_find_people" => "template#new_feed_find_people"
   get "/template/timeline" => "template#timeline"
   get "/template/timeline_about" => "template#timeline_about"
   get "/template/timeline_album" => "template#timeline_album"

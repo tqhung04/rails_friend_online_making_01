@@ -9,7 +9,9 @@ class TemplateController < ApplicationController
 
   def new_feed_messages; end
 
-  def new_feed_find_people; end
+  def new_feed_find_people
+    @user = current_user
+  end
 
   def timeline; end
 

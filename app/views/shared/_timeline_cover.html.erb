@@ -1,0 +1,94 @@
+<div class="timeline-cover">
+  <!--Timeline Menu for Large Screens-->
+  <div class="timeline-nav-bar hidden-sm hidden-xs">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="profile-info">
+          <% if @user.avatar.present? %>
+            <%=image_tag @user.avatar_url(), :class => "img-responsive profile-photo" %>
+          <% end %>
+          <h3><%= @user.name %></h3>
+          <p class="text-muted">Creative Director</p>
+        </div>
+      </div>
+      <div class="col-md-9">
+        <ul class="list-inline profile-menu">
+          <li>
+            <%= link_to "Timeline" %>
+          </li>
+          <li>
+            <%= link_to "About", user_path %>
+          </li>
+          <li>
+            <%= link_to "Album" %>
+          </li>
+          <li>
+            <%= link_to "Friends", controller: "users", action: "timeline_friends" %>
+          </li>
+        </ul>
+        <ul class="follow-me list-inline">
+          <li>1,299 people following her</li>
+          <li><%= render "shared/follow_form" %></li>
+          <li>
+            <!-- Report btn -->
+            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#reportModal"><%= t "users.show.report" %></button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div><!--Timeline Menu for Large Screens End-->
+
+  <!--Timeline Menu for Small Screens-->
+  <div class="navbar-mobile hidden-lg hidden-md">
+    <div class="profile-info">
+      <%= image_tag("users/user-1.jpg", :class => "img-responsive profile-photo") %>
+      <h4>Sarah Cruiz</h4>
+      <p class="text-muted">Creative Director</p>
+    </div>
+    <div class="mobile-menu">
+      <ul class="list-inline">
+        <li>
+          <%= link_to "Timeline", {controller: "template", action: "timeline"}, class: "active" %>
+        </li>
+        <li>
+          <%= link_to "About", controller: "template", action: "timeline_about" %>
+        </li>
+        <li>
+          <%= link_to "Album", controller: "template", action: "timeline_album" %>
+        </li>
+        <li>
+          <%= link_to "Friends", controller: "template", action: "timeline_friends" %>
+        </li>
+      </ul>
+      <button class="btn-primary">Add Friend</button>
+    </div>
+  </div><!--Timeline Menu for Small Screens End-->
+
+  </div>
+
+
+<div id="reportModal" class="modal fade" role="dialog">
+  <%= form_for Report.new, url: reports_path, remote: true do |f| %>
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"><%= t "users.show.report" %></h4>
+        </div>
+        <div class="modal-body">
+            <%= f.label t("users.show.description") %><br>
+            <%= f.text_area :description, class: "form-control", required: true %>
+            <%= f.hidden_field :reported_id, value: @user.id %>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default pull-left" data-dismiss="modal"><%= t "close" %></button>
+          <%= f.submit "send", class: "btn btn-danger pull-right", id: "message_btn", "data-dismiss" => ""%>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<div id="alert"></div>

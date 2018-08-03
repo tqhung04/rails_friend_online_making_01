@@ -1,7 +1,9 @@
 <div class="profile-card">
-  <%= image_tag("users/user-1.jpg", :class => "profile-photo") %>
+  <% if @user.avatar.present? %>
+    <%=image_tag @user.avatar_url(:display), :class => "profile-photo" %>
+  <% end %>
   <h5>
-    <%= link_to current_user.name, user_path(current_user), class: "text-white" %>
+    <%= link_to @user.name, user_path(@user), class: "text-white" %>
   </h5>
   <a href="#" class="text-white"><i class="ion ion-android-person-add"></i> 1,299 followers</a>
 </div><!--profile card ends-->

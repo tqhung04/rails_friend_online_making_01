@@ -26,6 +26,8 @@ en:
   search: "Search"
   previous: "Previous"
   next: "Next"
+  male: "Male"
+  female: "Female"
   users:
     timeline_firends:
       following: "Following"

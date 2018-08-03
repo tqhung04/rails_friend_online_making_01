@@ -163,7 +163,7 @@ ActiveRecord::Schema.define(version: 2018_08_03_032943) do
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
-    t.string "avatar", default: "image/upload/v1532933025/kmlpbeifhlzc7webnngd.png"
+    t.string "avatar", default: "image/upload/v1533480609/avatar-default.png"
     t.string "nick_name"
     t.integer "genre"
     t.text "description"

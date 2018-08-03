@@ -150,7 +150,7 @@ class UsersController < ApplicationController
   end
 
   def check_right
-    return if @conection&.status
+    return if @conection&.status || @user = current_user
     render :show_public
   end
 end
