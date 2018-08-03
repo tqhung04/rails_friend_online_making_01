@@ -10,6 +10,7 @@
 //= require rails-ujs
 //= require script
 //= require bootstrap
+//= require bootstrap-slider
 //= require_self
 //= require cable
 
@@ -17,6 +18,7 @@ function remove_all_streams() {
   if (App.messages) App.cable.subscriptions.remove(App.messages);
   if (App.strangers) App.cable.subscriptions.remove(App.strangers);
 };
+
 // Fuction for map initialization
 function readCookie(name) {
     var nameEQ = name + "=";
@@ -27,4 +29,9 @@ function readCookie(name) {
         if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
     }
     return null;
+}
+
+function toggle_message(tag, status, message) {
+    html = '<div class="alert alert-' + status +'"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> ' + message + '</div>';
+    $(tag).html(html);
 }

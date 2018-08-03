@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get "/template/new_feed_people_nearby" => "template#new_feed_people_nearby"
   get "/template/new_feed_friends" => "template#new_feed_friends"
   get "/template/new_feed_messages" => "template#new_feed_messages"
+  get "/template/new_feed_find_people" => "template#new_feed_find_people"
   get "/template/timeline" => "template#timeline"
   get "/template/timeline_about" => "template#timeline_about"
   get "/template/timeline_album" => "template#timeline_album"
@@ -22,7 +23,7 @@ Rails.application.routes.draw do
   resources :blogs
   resources :users
   resources :conections, only: %i(create update destroy)
-  resources :reports, only: %i(create)
+  resources :reports
 
   mount ActionCable.server => "/cable"
   resources :conversations do

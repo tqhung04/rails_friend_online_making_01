@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(version: 2018_08_03_032943) do
     t.integer "sender_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["recipient_id", "sender_id"], name: "index_conversations_on_recipient_id_and_sender_id", unique: true
   end
 
   create_table "desires", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

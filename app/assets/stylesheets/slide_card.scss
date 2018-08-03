@@ -1,0 +1,72 @@
+@import 'color';
+
+.card {
+  width: 60% !important;
+  margin: 0 auto;
+
+  .card_image {
+    width: 100%;
+  }
+
+  .glyphicon-heart {
+    color: $pink
+  }
+
+  .card_images {
+    overflow: hidden;
+    position: relative;
+  }
+
+  .card_title {
+    font-size: 20px;
+    font-weight: bold;
+    background-image: linear-gradient(0deg,rgba(0,0,0,.8),transparent);
+    position: absolute;
+    bottom: 0;
+    color: $white;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .card_action {
+    float: left;
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    .card_btn {
+      font-size: 18px;
+      font-weight: bold;
+    }
+  }
+
+  .card_profile_btn {
+    background: $pink !important;
+    color: $white;
+    font-weight: bold;
+  }
+}
+
+.card_next_btn {
+  left: auto;
+  right: 0
+}
+
+#myCarousel {
+  margin-top: 15px
+}
+
+.find_row {
+  margin-bottom: 10px
+}
+
+.find_form {
+  position: relative;
+  border-bottom: 1px solid $matching_form_color;
+}
+
+.find_form_btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+}

@@ -8,7 +8,6 @@ en:
   log_in: " Login "
   submit: "Submit"
   edit: "Edit"
-
   nick_name: "Nick name"
   genre: "Genre"
   status: "Status"
@@ -23,7 +22,10 @@ en:
   age: "Age"
   height: "Height"
   weight: "Weight"
-
+  close: "Close"
+  search: "Search"
+  previous: "Previous"
+  next: "Next"
   users:
     edit:
       content: "Update your profile"
@@ -55,6 +57,9 @@ en:
       download: "download"
     logged_in_user:
       danger: "Please log in."
+    show:
+      report: "Report"
+      description: "Description"
   shared:
     error_messages:
       content1: "The form contains"
@@ -97,7 +102,8 @@ en:
       close: "Close"
       new_blog: "New Blog"
   report:
-    create_failed_msg: "Failed to report"
+    create_failed_msg: "You has reported this account already."
+    create_success_msg: "Report successful"
   admin:
     newfeed: "Newfeed"
     detail: "Detail"
@@ -115,3 +121,6 @@ en:
   transactions:
     map:
       view: "View profile"
+  message:
+    success: "Success"
+    danger: "Danger"

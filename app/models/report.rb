@@ -10,6 +10,7 @@ class Report < ApplicationRecord
   }
   ATTRIBUTES_PARAMS = %i(user_id reported_id description).freeze
   validates :reported_id, presence: true
+  validates :user_id, presence: true
   validates :description, length: {maximum: Settings.maximum.length_report_description}, allow_nil: true
   validates_uniqueness_of :user_id, scope: :reported_id
 end

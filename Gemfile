@@ -27,10 +27,13 @@ gem "mini_magick"
 gem "cloudinary"
 gem "carrierwave-base64"
 gem "figaro"
+gem "glyphicons-rails", "~> 0.1.2"
+gem "bootstrap-slider-rails"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "rubocop", "~> 0.54.0", require: false
+  gem "pry-rails"
 end
 
 group :development do

@@ -61,6 +61,8 @@ body{
 @font-face {
     font-family:"Agency FB";
     src: asset-url("agency-fb.eot")  format('embedded-opentype');
+    src: asset-url("glyphicons-halflings-regular.woff")  format('woff');
+    src: asset-url("glyphicons-halflings-regular.woffs")  format('woff2');
 }
 @font-face {
     font-family:"Agency FB";
