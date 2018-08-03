@@ -59,7 +59,9 @@
                       <p> Male<%= f.radio_button :genre, "male" %> &nbsp;
                       Female<%= f.radio_button :genre, "female" %></p>
                       <%= f.label :avatar %>
+                      <% if @user.avatar.present? %>
                       <span><%= image_tag @user.avatar_url(:display), :class => "img-responsive profile-photo" %></span>
+                      <% end %>
                       <%= f.file_field :avatar%>
                       <img id="blah" class="w100" src="#" alt="your image" />
                       <%= f.label :description %>

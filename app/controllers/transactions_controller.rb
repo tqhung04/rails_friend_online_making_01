@@ -1,4 +1,6 @@
 class TransactionsController < ApplicationController
+  include TransactionsHelper
+
   def index
     @tran = current_user.local
     @transactions = Transaction.near(@tran)

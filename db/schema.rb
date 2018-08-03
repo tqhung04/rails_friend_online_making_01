@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_02_070210) do
+ActiveRecord::Schema.define(version: 2018_08_03_032943) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2018_08_02_070210) do
     t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "photo"
   end
 
   create_table "bodies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -89,7 +90,6 @@ ActiveRecord::Schema.define(version: 2018_08_02_070210) do
     t.integer "sender_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["recipient_id", "sender_id"], name: "index_conversations_on_recipient_id_and_sender_id", unique: true
   end
 
   create_table "desires", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -162,18 +162,17 @@ ActiveRecord::Schema.define(version: 2018_08_02_070210) do
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
-    t.string "avatar", default: "image/upload/v1532933025/kmlpbeifhlzc7webnngd.png"
+    t.text "avatar"
     t.string "nick_name"
     t.integer "genre"
     t.text "description"
     t.text "hobby"
     t.integer "status", default: 0
-    t.string "country"
+    t.integer "country"
     t.boolean "admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
-    t.string "remember_digest"
     t.boolean "matching", default: false
     t.boolean "isBlocked", default: false
   end

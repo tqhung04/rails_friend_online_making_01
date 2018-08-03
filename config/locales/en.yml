@@ -92,6 +92,10 @@ en:
   template:
     chat_with_friends: "Chat with friends"
     chat_with_stranger: "Chat with stranger"
+    new_feed_post_create_box:
+      write: "Write what you wish"
+      close: "Close"
+      new_blog: "New Blog"
   report:
     create_failed_msg: "Failed to report"
   admin:
@@ -108,3 +112,6 @@ en:
     action: "Action"
     blocked: "Blocked"
     available: "Available"
+  transactions:
+    map:
+      view: "View profile"

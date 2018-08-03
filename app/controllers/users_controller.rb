@@ -40,6 +40,7 @@ class UsersController < ApplicationController
         @education.save
         @desire = @user.build_desire desire_params
         @desire.save
+        create_default_tracsaction
         log_in @user
         flash[:success] = t("success")
         redirect_to @user
@@ -127,5 +128,14 @@ class UsersController < ApplicationController
 
   def load_user
     @user = current_user
+  end
+
+  def create_default_tracsaction
+    @local = @user.build_local
+    @local.latitude = 20.9
+    @local.longitude = 105.9
+    return if @local.save
+    @user.destroy
+    redirect_to root_url
   end
 end

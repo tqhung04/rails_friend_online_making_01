@@ -1,7 +1,7 @@
 <%provide :title, @user.name%>
 <% @desire = Desire.find_by user_id: @user.id %>
 <p><span class="text-grey">
-  <% if @desire.status? %>
+  <% if @desire&.status? %>
     <%= "Private" %>
   <% else %>
     <%= "Public" %>
@@ -11,21 +11,21 @@
   <li>
     <div>
       <h5 >Genre</h5>
-      <p><span class="text-grey"><%= @desire.genre %></span></p>
+      <p><span class="text-grey"><%= @desire&.genre %></span></p>
     </div>
   </li>
   <li>
     <div>
       <h5 ><%= t "description" %></h5>
-      <p><span class="text-grey"><%= @desire.description %></span></p>
+      <p><span class="text-grey"><%= @desire&.description %></span></p>
     </div>
   </li>
   <li>
     <div>
       <h5 ><%= t "age" %></h5>
       <p>
-        <span class="text-grey"><%= @desire.age_min %></span>&nbsp; :
-        <span class="text-grey"><%= @desire.age_max %></span>
+        <span class="text-grey"><%= @desire&.age_min %></span>&nbsp; :
+        <span class="text-grey"><%= @desire&.age_max %></span>
       </p>
     </div>
   </li>
@@ -34,8 +34,8 @@
     <div>
       <h5 ><%= t "height" %></h5>
       <p>
-        <span class="text-grey"><%= @desire.height_min %></span> &nbsp; :
-        <span class="text-grey"><%= @desire.height_max %></span></p>
+        <span class="text-grey"><%= @desire&.height_min %></span> &nbsp; :
+        <span class="text-grey"><%= @desire&.height_max %></span></p>
       </p>
     </div>
   </li>
@@ -44,8 +44,8 @@
     <div>
       <h5 ><%= t "weight" %></h5>
       <p>
-        <span class="text-grey"><%= @desire.weight_min %></span> &nbsp; :
-        <span class="text-grey"><%= @desire.weight_max %></span>
+        <span class="text-grey"><%= @desire&.weight_min %></span> &nbsp; :
+        <span class="text-grey"><%= @desire&.weight_max %></span>
       </p>
     </div>
   </li>
