@@ -1,0 +1,34 @@
+<% if @blogs.empty? %>
+  <div class="alert alert-warning">
+    <%= t "no_posts_msg" %>
+  </div>
+<% end %>
+
+<% @blogs.each do |blog| %>
+<div class="post-content">
+    <%= link_to blog_path(blog) do %>
+      <% if blog.photo.present? %>
+          <%=image_tag blog.photo_url, class: "img-responsive post-image" %>
+      <% end %>
+
+      <div class="post-container">
+        <%=image_tag blog.user.avatar_url, class: "profile-photo-md pull-left" %>
+        <div class="post-detail">
+          <div class="user-info">
+            <h5>
+              <%= link_to blog.user.name, user_path(blog.user), class: "profile-link" %>
+              <span class="following">following</span>
+            </h5>
+            <p class="text-muted"><%= time_ago_in_words(blog.created_at) %> ago</p>
+          </div>
+          <div class="line-divider"></div>
+          <div class="post-text">
+            <p><%= blog.body %><i class="em em-anguished"></i> <i class="em em-anguished"></i> <i class="em em-anguished"></i></p>
+          </div>
+          <div class="line-divider"></div>
+        </div>
+    </div>
+  <% end %>
+</div>
+<hr>
+<% end %>

@@ -1,5 +1,6 @@
 $(document).ready(function() {
   remove_all_streams();
+  var currrent_user_id = $('#chat_room').attr('current-user-id');
   App.messages = App.cable.subscriptions.create(
   {
     channel: 'MessagesChannel',
@@ -15,7 +16,9 @@ $(document).ready(function() {
       messages_scrollbar.scrollTop(height);
 
       // Clear field after submit
-      $('#message_field').val('');
+      if (data.sender_id == currrent_user_id) {
+        $('#message_field').val('');
+      }
     },
 
     renderMessage: function(data) {
@@ -25,7 +28,6 @@ $(document).ready(function() {
       last_message_tag.html(data.body);
 
       // Update in messages' column
-      var currrent_user_id = $('#chat_room').attr('current-user-id');
       if (currrent_user_id == data.sender_id) {
         li_tag.find($('.messages_status_icon')).html('<div class="replied"><i class="icon ion-reply"></i></div>');
         return data.message_for_sender;

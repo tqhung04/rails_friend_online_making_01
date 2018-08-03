@@ -7,8 +7,8 @@
       </div>
       <div class="col-md-7">
         <%= render "template/new_feed_post_create_box" %>
-        <%= render "shared/blogs" %>
-        <!-- Blogs newfeed -->
+        <%= render "shared/new_feed_blogs" %>
+        <%= paginate @blogs %>
       </div>
 
       <div class="col-md-2 static">

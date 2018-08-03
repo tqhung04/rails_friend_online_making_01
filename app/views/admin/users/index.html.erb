@@ -1,0 +1,44 @@
+<div id="page-contents">
+<div class="container">
+<div class="row">
+
+  <!-- Newsfeed Common Side Bar Left
+  ================================================= -->
+  <div class="col-md-3 static">
+    <%= render "shared/current_user_profile_card" %>
+    <%= render "admin/admin_nav" %>
+  </div>
+  <div class="col-md-9">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th><%= t "admin.name" %></th>
+          <th><%= t "admin.avatar" %></th>
+          <th><%= t "admin.email" %></th>
+          <th><%= t "admin.created_at" %></th>
+          <th><%= t "admin.action" %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |u| %>
+          <tr>
+            <td><%= u.id %></td>
+            <td><%= u.name %></td>
+            <td><%= image_tag u.avatar_url, class: "profile-photo-admin" %></td>
+            <td><%= u.email.email %></td>
+            <td><%= u.created_at.strftime("%d/%m/%y %I:%M") %></td>
+            <td>
+              <%= link_to t("edit"), edit_user_path(u) %>
+              </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <!-- Pagination -->
+    <%= paginate @users %>
+  </div>
+</div>
+</div>
+</div>

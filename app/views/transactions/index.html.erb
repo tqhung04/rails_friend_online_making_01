@@ -8,6 +8,7 @@
       <div class="col-md-7">
         <div class="people-nearby">
           <%= render "map" %>
+          <%= paginate @transactions %>
         </div>
       </div>
       <div class="col-md-2 static">
@@ -16,5 +17,6 @@
       </div>
     </div>
   </div>
+
 </div>
 <%= javascript_include_tag "transaction_index" %>

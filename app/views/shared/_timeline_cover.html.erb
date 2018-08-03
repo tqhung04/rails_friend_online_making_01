@@ -11,20 +11,17 @@
       <div class="col-md-9">
         <ul class="list-inline profile-menu">
           <li>
-            <%= link_to t(".timeline"), user_path(@user) %>
+            <%= link_to t("timeline"), user_path(@user) %>
           </li>
           <li>
-            <%= link_to t(".about"), show_public_path(@user) %>
+            <%= link_to t("about"), show_public_path(@user) %>
           </li>
           <li>
-            <%= link_to t(".album") %>
-          </li>
-          <li>
-            <%= link_to t(".friends"), timeline_friends_path %>
+            <%= link_to t("friends"), timeline_friends_path %>
           </li>
         </ul>
         <ul class="follow-me list-inline">
-          <li><%= render "shared/follow_form" %></li>
+          <li class="pull-left"><%= render "shared/follow_form" %></li>
           <% if !current_user? @user %>
             <li>
               <!-- Report btn -->
@@ -39,13 +36,19 @@
   <!--Timeline Menu for Small Screens-->
   <div class="navbar-mobile hidden-lg hidden-md">
     <div class="profile-info">
-      <%=image_tag @user.avatar_url, class: "img-responsive profile-photo" %>
+      <%= image_tag @user.avatar_url, class: "img-responsive profile-photo" %>
       <h4><%= @user.name %></h4>
     </div>
     <div class="mobile-menu">
-      <ul class="list-inline">
+      <ul class="follow-me list-inline">
+        <li class=""><%= render "shared/follow_form" %></li>
+        <% if !current_user? @user %>
+          <li>
+            <!-- Report btn -->
+            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#reportModal"><%= t "users.show.report" %></button>
+          </li>
+        <% end %>
       </ul>
-      <button class="btn-primary"><%= t(".add_fiend") %></button>
     </div>
   </div><!--Timeline Menu for Small Screens End-->
 </div>

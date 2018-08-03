@@ -44,6 +44,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :reports
     resources :complaints
+    resources :users, only: %i(index)
     get "unique_reports", to: "reports#show_unique_reports"
   end
 end

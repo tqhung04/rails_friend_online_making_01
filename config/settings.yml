@@ -1,6 +1,11 @@
 pagination:
-  user: 25
+  user: 50
   report: 50
+  transaction: 10
+  blog: 10
+  message: 10
+  wanted: 10
+  friend: 10
 maximum:
   length_email: 255
   length_name: 50

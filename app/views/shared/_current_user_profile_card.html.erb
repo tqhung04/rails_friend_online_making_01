@@ -1,5 +1,5 @@
 <div class="profile-card">
-  <%=image_tag current_user.avatar_url(), :class => "profile-photo" %>
+  <%= image_tag current_user.avatar_url(), class: "profile-photo" %>
   <h5>
     <%= link_to current_user.name, user_path(current_user), class: "text-white" %>
   </h5>

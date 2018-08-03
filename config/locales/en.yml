@@ -36,7 +36,7 @@ en:
   timeline: "Timeline"
   about: "About"
   album: "Album"
-  friends: "friends"
+  friends: "Friends"
   add_fiend: "Add friend"
   no_conversations_msg: "There are not any conversations. Please follow someone to chat."
   no_posts_msg: "There are not any posts"
@@ -48,6 +48,9 @@ en:
   active: "Active"
   action_yes: "Yes"
   action_no: "No"
+  chat_with_friends: "Chat with friends"
+  home: "Home"
+  question: "What are you thinking about?"
   users:
     timeline_firends:
       following: "Following"
@@ -93,9 +96,11 @@ en:
       content1: "The form contains"
       error: "error"
     follow:
+      add_friend: "Add friend"
       follow: "Follow"
     unfollow:
       unfollow: "Unfollow"
+      unfriend: "Unfriend"
       accept: "Accept"
       deny: "Deny"
       pendding: "Pendding"
@@ -139,6 +144,7 @@ en:
     reported_unique: "Uniqued reports"
     status: "Status"
     name: "Name"
+    email: "Email"
     avatar: "Avatar"
     description: "Description"
     reported_at: "Reported at"
@@ -147,6 +153,8 @@ en:
     blocked: "Blocked"
     available: "Available"
     complaint_all: "All complaints"
+    user_all: "All users"
+    created_at: "Created at"
   transactions:
     map:
       view: "View profile"
