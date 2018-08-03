@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get "/template/new_feed_friends" => "template#new_feed_friends"
   get "/template/new_feed_messages" => "template#new_feed_messages"
   get "/template/new_feed_find_people" => "template#new_feed_find_people"
+  post "/template/new_feed_find_people" => "template#new_feed_find_people"
   get "/template/timeline" => "template#timeline"
   get "/template/timeline_about" => "template#timeline_about"
   get "/template/timeline_album" => "template#timeline_album"
@@ -18,7 +19,7 @@ Rails.application.routes.draw do
   get "/users/:id/show_public", to: "users#show_public"
   get "/users/:id/show_private", to: "users#show_private"
   get "/users/:id/show_desire", to: "users#show_desire"
-  get "/users/:id/timeline_friends", to: "users#timeline_friends"
+  get "/users/:id/timeline_friends", to: "users#timeline_friends", as: :timeline_friends
   get "posts/new"
   root "users#new"
   resources :blogs

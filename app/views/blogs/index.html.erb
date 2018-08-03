@@ -2,14 +2,13 @@
   <div class="container">
     <div class="row">
       <div class="col-md-3 static">
-        <div class="profile-card">
-          <%= image_tag("users/user-1.jpg", class: "profile-photo") %>
-          <h5><a href="timeline.html" class="text-white"><%= current_user %></a></h5>
-        </div>
-        <%= render "template/new_feed_nav_new_feed" %>
+        <%= render "shared/current_user_profile_card" %>
+        <%= render "shared/new_feed_nav_new_feed" %>
       </div>
       <div class="col-md-7">
         <%= render "template/new_feed_post_create_box" %>
+        <!-- Blogs newfeed -->
+      </div>
 
       <div class="col-md-2 static">
         <div class="suggestions" id="sticky-sidebar">

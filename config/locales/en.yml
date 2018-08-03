@@ -26,6 +26,17 @@ en:
   search: "Search"
   previous: "Previous"
   next: "Next"
+  male: "Male"
+  female: "Female"
+  newsfeed: "Newsfeed"
+  matching: "Matching"
+  people_nearby: "People Nearby"
+  timeline: "Timeline"
+  about: "About"
+  album: "Album"
+  friends: "friends"
+  add_fiend: "Add friend"
+  no_conversations_msg: "There are not any conversations. Please follow someone to chat."
   users:
     timeline_firends:
       following: "Following"
