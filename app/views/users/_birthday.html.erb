@@ -1,0 +1,10 @@
+<%provide :title, @user.name %>
+<% @birthdays = Birthday.find_by user_id: @user.id %>
+<p><span class="text-grey">
+  <% if @birthdays.status? %>
+    <%= "Private" %>
+  <% else %>
+    <%= "Public" %>
+  <% end %>
+</span></p>
+<%= @birthdays.birthday %>

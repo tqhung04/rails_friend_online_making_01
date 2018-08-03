@@ -1,0 +1,54 @@
+<% provide :title, @user.name%>
+<div class="container">
+  <!-- Timeline
+  ================================================= -->
+  <div class="timeline">
+    <%= render "template/timeline_cover" %>
+    <div id="page-contents">
+      <div class="row">
+        <div class="col-md-3 user_show_nav">
+          <%= render "layouts/timeline_nav" %>
+        </div>
+        <div class="col-md-7">
+          <div class="about-content-block">
+            <h4 class="grey"><i class="ion-ios-briefcase-outline icon-in-title"></i><%= t "users.show.content_private" %></h4>
+            <ul  id="nav_show" >
+              <li>
+                <div class="organization">
+                  <h5><%= t "email" %></h5>
+                  <b><span class="text-grey"><%= render "email"%></span></p></b>
+                </div>
+              </li>
+              <li>
+                <div class="organization">
+                  <h5><%= t "birthday" %></h5>
+                  <b><span class="text-grey"><%= render "birthday" %></span></p></b>
+                </div>
+              </li>
+              <li>
+                <div class="organization">
+                  <h5><%= t "body" %></h5>
+                  <b><span class="text-grey"><%= render "body"%></span></p></b>
+                </div>
+              </li>
+              <li>
+                <div class="organization">
+                  <h5><%= t "job" %></h5>
+                  <b><span class="text-grey"><%= render "career" %></span></p></b>
+                </div>
+              </li>
+              <li>
+                <div class="organization">
+                  <h5><%= t "education" %></h5>
+                  <b><span class="text-grey"><%= render "education" %></span></p></b>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-2 static">
+          <%= render "template/timeline_activity" %>
+        </div>
+      </div>
+    </div>
+  </div>

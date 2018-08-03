@@ -33,7 +33,7 @@
         <%= f.submit t(".create"), class: "btn-secondary" %>
       <% end %>
       </div>
-      <a href="#"><%= t ".have_account" %></a>
+      <p><%= link_to t(".have_account"), login_path %></p>
       <%= image_tag("bottom-shadow.png", :class => "form_shadow") %>
     </div><!-- Sign Up Form End -->
 

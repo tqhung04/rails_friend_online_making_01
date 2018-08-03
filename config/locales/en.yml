@@ -8,7 +8,33 @@ en:
   log_in: " Login "
   submit: "Submit"
   edit: "Edit"
+
+  nick_name: "Nick name"
+  genre: "Genre"
+  status: "Status"
+  country: "Country"
+  hobby: "Hobby"
+  description: "Description"
+  email: "Email"
+  birthday: "Birthday"
+  body: "Body"
+  job: "Job"
+  education: "Education"
+  age: "Age"
+  height: "Height"
+  weight: "Weight"
+
   users:
+    edit:
+      content: "Update your profile"
+      content_login: "Information Login"
+      content_public: "Information Public"
+      content_private: "Information Private"
+      content_desire: "Information Desire"
+    show:
+      content: "Personal Information"
+      content_private: "Private Information"
+      content_desire: "Desire Information"
     new:
       sign_up: "Sign up"
       create: "Create my account"
@@ -27,10 +53,19 @@ en:
       find_people: "find awesome people like you"
       people_signup: "People Already Signed Up"
       download: "download"
+    logged_in_user:
+      danger: "Please log in."
   shared:
     error_messages:
       content1: "The form contains"
       error: "error"
+    follow:
+      follow: "Follow"
+    unfollow:
+      unfollow: "Unfollow"
+      accept: "Accept"
+      deny: "Deny"
+      pendding: "Pendding"
   sessions:
     new:
       find_friend: "Find My Friend"
@@ -40,6 +75,8 @@ en:
       password: "Enter Password"
     create:
       danger: "Invalid email/password combination"
+    load_user:
+      fail: "Please Signup"
   conversations:
     conversation:
       waiting: "Let's talk!"

@@ -22,6 +22,11 @@ gem "redis"
 gem "geocoder"
 gem "kaminari"
 gem "config"
+gem "carrierwave", "1.2.2"
+gem "mini_magick"
+gem "cloudinary"
+gem "carrierwave-base64"
+gem "figaro"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
