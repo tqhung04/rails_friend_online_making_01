@@ -1,1 +1,8 @@
-console.log("From report create");
+var tag = '#alert';
+
+if(<%= @status %> == true) {
+  toggle_message(tag, 'success', '<%= t "report.create_success_msg" %>');
+} else {
+  toggle_message(tag, 'danger', '<%= t "report.create_failed_msg" %>');
+}
+

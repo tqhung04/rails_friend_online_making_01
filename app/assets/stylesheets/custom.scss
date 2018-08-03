@@ -3,7 +3,9 @@
 @import 'style';
 @import 'ionicons';
 @import 'font-awesome';
-@import 'collor';
+@import 'color';
+@import 'slide_card';
+@import 'glyphicons';
 
 .w50 {
   width: 50%;
@@ -120,6 +122,7 @@ form.edit_user {
 }
 
 #nav_show {
+
   li {
     border-bottom: 1px solid $ul_color;
   }
@@ -138,4 +141,33 @@ form.edit_user {
     font-size: 24px;
     font-weight: 300;
     text-transform: uppercase;
+}
+
+#reportModal {
+  margin-top: 160px;
+
+  h4 {
+    color: $danger_collor !important;
+    font-weight: bold
+  }
+}
+
+#alert {
+  overflow: hidden;
+  position: absolute;
+  top: 60px;
+  width: 30%;
+  right: 0;
+}
+
+.fright {
+  float:right
+}
+
+.fleft {
+  float:left
+}
+
+input[type="radio"] {
+  margin-top: 1px !important
 }

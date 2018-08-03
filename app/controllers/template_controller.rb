@@ -9,6 +9,8 @@ class TemplateController < ApplicationController
 
   def new_feed_messages; end
 
+  def new_feed_find_people; end
+
   def timeline; end
 
   def timeline_about; end
@@ -16,4 +18,5 @@ class TemplateController < ApplicationController
   def timeline_album; end
 
   def timeline_friends; end
+
 end
