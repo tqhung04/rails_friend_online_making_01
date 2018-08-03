@@ -1,8 +1,11 @@
 <ul class="nav-news-feed">
   <li><i class="icon ion-ios-paper"></i><div>
-    <%= link_to t("admin.newfeed"), controller: "template", action: "new_feed" %>
+    <%= link_to t("admin.newfeed"), template_new_feed_path %>
   </div></li>
   <li><i class="icon ion-ios-paper"></i><div>
-    <%= link_to t("admin.reported"), controller: "admin", action: "reported" %>
+    <%= link_to t("admin.reported_all"), admin_all_reports_path %>
+  </div></li>
+  <li><i class="icon ion-ios-paper"></i><div>
+    <%= link_to t("admin.reported_unique"), admin_unique_reports_path %>
   </div></li>
 </ul><!--news-feed links ends-->
