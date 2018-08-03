@@ -1,6 +1,6 @@
 <div id="follow_form">
   <% if logged_in? %>
-    <% if @follow.present? %>
+    <% if @conection.present? %>
       <%= render "shared/unfollow" %>
     <% else %>
       <%= render "shared/follow" %>

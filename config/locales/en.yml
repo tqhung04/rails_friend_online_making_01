@@ -27,6 +27,9 @@ en:
   previous: "Previous"
   next: "Next"
   users:
+    timeline_firends:
+      following: "Following"
+      followed: "Followed"
     edit:
       content: "Update your profile"
       content_login: "Information Login"
