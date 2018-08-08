@@ -8,6 +8,11 @@
       <h2 class="text-white"><%= t ".find_friend" %></h2>
       <div class="line-divider"></div>
       <div class="form-wrapper">
+        <% flash.each do |message_type, message| %>
+          <ul>
+            <li class="c_red"><%= message %></li>
+          </ul>
+        <% end %>
         <p class="signup-text"><%= t ".login_up_now" %></p>
         <%= form_for(:session, url: login_path) do |f| %>
         <%= field_set_tag nil, class: "form-group" do %>
