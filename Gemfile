@@ -8,7 +8,6 @@ gem "bootsnap", ">= 1.1.0", require: false
 gem "bootstrap-sass", "~> 3.3.7"
 gem "coffee-rails", "~> 4.2"
 gem "jbuilder", "~> 2.5"
-gem "mysql2", ">= 0.4.4", "< 0.6.0"
 gem "puma", "~> 3.11"
 gem "rails", "~> 5.2.0"
 gem "turbolinks", "~> 5"
@@ -17,7 +16,6 @@ gem "jquery-rails"
 gem "ionicons-rails"
 gem "font-awesome-rails"
 gem "sass-rails", ">= 3.2"
-gem "bootstrap-sass", "~> 3.3.7"
 gem "redis"
 gem "geocoder"
 gem "kaminari"
@@ -41,6 +39,11 @@ group :development do
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
   gem "web-console", ">= 3.3.0"
+  gem "mysql2", ">= 0.4.4", "< 0.6.0"
+end
+
+group :production do
+  gem "pg", "~> 0.18"
 end
 
 group :test do

@@ -12,6 +12,6 @@ function readURL(input) {
   }
 }
 
-$('#user_avatar').change(function() {
+$('#public_form_user_avatar').change(function() {
   readURL(this);
 });

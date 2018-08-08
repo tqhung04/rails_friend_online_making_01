@@ -20,16 +20,16 @@
 
         <!-- Friend List
         ================================================= -->
-        <form class="find_form">
+        <%= form_for @user, :url => url_for(:controller => 'template', :action => 'new_feed_find_people') do |f| %>
           <div class="row find_row">
-            <div class="col-sm-2 control-label"><%= t "gener" %></div>
+            <div class="col-sm-2 control-label"><%= t "genre" %></div>
             <div class="col-sm-6">
-              <label class="radio-inline">
-                <input type="radio" name="optradio" checked>Male
-              </label>
-              <label class="radio-inline">
-                <input type="radio" name="optradio">Female
-              </label>
+              <%= f.label t "male" do %>
+                <%= f.radio_button :genre, "male" %>
+              <% end %>
+              <%= f.label t "female" do %>
+                <%= f.radio_button :genre, "female" %>
+              <% end %>
             </div>
           </div>
           <div class="row find_row">
@@ -39,7 +39,7 @@
             </div>
           </div>
           <button class="btn btn-primary find_form_btn fright"><%= t "search" %></button>
-        </form>
+        <% end %>
         <div class="row">
           <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
             <!-- Wrapper for slides -->

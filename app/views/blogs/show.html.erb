@@ -7,7 +7,7 @@
             <%= image_tag("users/user-5.jpg", :class => "profile-photo-md pull-left") %>
             <div class="post-detail">
               <div class="user-info">
-                <h5><a href="timeline.html" class="profile-link"><%= @blog.name %></a> 
+                <h5><a href="timeline.html" class="profile-link"><%= @blog.name %></a>
                   <span class="following"></span>
                 </h5>
                 <p class="text-muted"><%= time_ago_in_words(@blog.created_at) %> ago</p>
@@ -16,7 +16,7 @@
           </div>
         </div>
          <% if @blog.photo.present? %>
-              <%=image_tag @blog.photo_url(:display), class: "img-responsive post-image" %>
+              <%=image_tag @blog.photo_url(), class: "img-responsive post-image" %>
             <% end %>
         <div id="chat-block" class="txt_align_left">
           <div class="post-content">

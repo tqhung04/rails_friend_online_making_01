@@ -11,9 +11,9 @@ class AdminController < ApplicationController
     order = params["order"]
 
     if status == "blocked"
-      @be_reported_users = @be_reported_users.where("isBlocked = true");
+      @be_reported_users = @be_reported_users.where("is_blocked = true");
     elsif status == "available"
-      @be_reported_users = @be_reported_users.where("isBlocked = false");
+      @be_reported_users = @be_reported_users.where("is_blocked = false");
     end
 
     if order == "asc"

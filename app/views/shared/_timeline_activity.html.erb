@@ -1,0 +1,14 @@
+<% if current_user.id == @user.id %>
+  <div id="sticky-sidebar">
+    <h4 class="grey">Follow Requests</h4>
+    <% if logged_in? && current_user.id == @user.id %>
+      <% @wanteds.each do |user| %>
+        <div class="feed-item">
+        <div class="live-activity">
+          <p><%= link_to user.name, user_path(user), class: "profile-link" %>want to follow you.</p>
+        </div>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

@@ -1,0 +1,76 @@
+<div class="container">
+  <!-- Timeline
+  ================================================= -->
+  <div class="timeline">
+    <%= render "template/timeline_cover" %>
+    <div id="page-contents">
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-7">
+
+          <!-- Post Create Box
+          ================================================= -->
+          <div class="create-post">
+            <div class="row">
+              <div class="col-md-7 col-sm-7">
+              </div>
+              <div class="col-md-5 col-sm-5">
+              </div>
+            </div>
+          </div><!-- Post Create Box End-->
+
+          <!-- Posts -->
+          <!-- End posts -->
+          <% @posts.each do |post| %>
+            <!-- Post Content
+            ================================================= -->
+            <div class="post-content">
+
+              <!--Post Date-->
+              <div class="post-date hidden-xs hidden-sm">
+                <h5><%=  %></h5>
+                <p class="text-grey">Sometimes ago</p>
+              </div><!--Post Date End-->
+
+              <%= image_tag("post-images/12.jpg", :class => "img-responsive post-image") %>
+              <div class="post-container">
+                <%= image_tag("users/user-1.jpg", :class => "profile-photo-md pull-left") %>
+                <div class="post-detail">
+                  <div class="user-info">
+                    <h5><a href="timeline.html" class="profile-link">Sarah Cruiz</a> <span class="following">following</span></h5>
+                    <p class="text-muted">Published a photo about 15 mins ago</p>
+                  </div>
+                  <div class="reaction">
+                    <a class="btn text-green"><i class="icon ion-thumbsup"></i> 13</a>
+                    <a class="btn text-red"><i class="fa fa-thumbs-down"></i> 0</a>
+                  </div>
+                  <div class="line-divider"></div>
+                  <div class="post-text">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <i class="em em-anguished"></i> <i class="em em-anguished"></i> <i class="em em-anguished"></i></p>
+                  </div>
+                  <div class="line-divider"></div>
+                  <div class="post-comment">
+                    <%= image_tag("users/user-11.jpg", :class => "profile-photo-sm") %>
+                    <p><a href="timeline.html" class="profile-link">Diana </a><i class="em em-laughing"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud </p>
+                  </div>
+                  <div class="post-comment">
+                    <%= image_tag("users/user-4.jpg", :class => "profile-photo-sm") %>
+                    <p><a href="timeline.html" class="profile-link">John</a> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud </p>
+                  </div>
+                  <div class="post-comment">
+                    <%= image_tag("users/user-1.jpg", :class => "profile-photo-sm") %>
+                    <input type="text" class="form-control" placeholder="Post a comment">
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+
+        </div>
+        <div class="col-md-2 static">
+          <%= render "template/timeline_activity" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

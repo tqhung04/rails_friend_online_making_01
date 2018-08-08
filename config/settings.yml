@@ -19,3 +19,7 @@ page:
   per_page: 10
 password_reset:
   expired: 2
+search:
+  nearbys: 50
+  default_max_age: 30
+  default_min_age: 1

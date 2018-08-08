@@ -51,7 +51,6 @@ node_modules/
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 /test
-/config/database.yml
 /config/master.key
 /config/credentials.yml.enc
 /config/secrets.yml
@@ -62,4 +61,4 @@ config/settings.local.yml
 config/settings/*.local.yml
 config/environments/*.local.yml
 # Ignore application configuration
-/config/application.yml
+# /config/application.yml

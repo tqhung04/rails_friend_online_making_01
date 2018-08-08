@@ -4,7 +4,7 @@
   <!-- Timeline
   ================================================= -->
   <div class="timeline">
-    <%= render "template/timeline_cover" %>
+    <%= render "shared/timeline_cover" %>
     <div id="page-contents">
       <div class="row">
         <div class="col-md-3"></div>
@@ -25,7 +25,7 @@
                     <div class="friend-card">
                       <%= image_tag("covers/1.jpg", :class => "img-responsive cover") %>
                       <div class="card-info">
-                        <%= image_tag u.avatar_url(:display), :class => "profile-photo-lg" %>
+                        <%= image_tag u.avatar_url(), :class => "profile-photo-lg" %>
                         <div class="friend-info">
                           <a href="#" class="pull-right text-green">My Friend</a>
                           <h5><a href="timeline.html" class="profile-link"><%= u.name %></a></h5>
@@ -51,7 +51,7 @@
                       <div class="friend-card">
                         <%= image_tag("covers/1.jpg", :class => "img-responsive cover") %>
                         <div class="card-info">
-                          <%= image_tag u.avatar_url(:display), :class => "profile-photo-lg" %>
+                          <%= image_tag u.avatar_url(), :class => "profile-photo-lg" %>
                           <div class="friend-info">
                             <a href="#" class="pull-right text-green">My Friend</a>
                             <h5><a href="timeline.html" class="profile-link"><%= u.name %></a></h5>

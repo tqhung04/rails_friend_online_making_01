@@ -155,7 +155,7 @@ form.edit_user {
 #alert {
   overflow: hidden;
   position: absolute;
-  top: 60px;
+  top: 103px;
   width: 30%;
   right: 0;
 }
@@ -170,4 +170,20 @@ form.edit_user {
 
 input[type="radio"] {
   margin-top: 1px !important
+}
+
+.margin_btm_15 {
+  margin-bottom: 15px
+}
+
+.margin_btm_10 {
+  margin-bottom: 15px
+}
+
+margin_top_10 {
+  margin-top: 10px
+}
+
+.c_red {
+  color: red
 }

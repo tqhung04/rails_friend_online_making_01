@@ -1,0 +1,38 @@
+<div id="page-contents">
+  <div class="container">
+    <div class="row">
+      <!-- Newsfeed Common Side Bar Left
+      ================================================= -->
+      <div class="col-md-3 static">
+        <%= render "shared/current_user_profile_card" %>
+        <%= render "shared/new_feed_nav_new_feed" %>
+      </div>
+      <div class="col-md-7">
+        <%= render "template/new_feed_post_create_box" %>
+
+        <!-- Chat Room
+        ================================================= -->
+        <div class="chat-room" id="chat_room">
+          <div  class="row">
+            <div class="col-md-12">
+              <div class="alert alert-warning">
+                <%= t "no_conversations_msg" %>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Newsfeed Common Side Bar Right
+      ================================================= -->
+      <div class="col-md-2 static">
+        <div class="suggestions" id="sticky-sidebar">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= javascript_include_tag "channels/messages" %>
+<%= javascript_include_tag "messages" %>

@@ -4,7 +4,7 @@ class ConversationsController < ApplicationController
     :allowed?, only: %i(show)
 
   def index
-    redirect_to action: :show, id: @conversations.last.id
+    redirect_to action: :show, id: @conversations.last.id if @conversations.last.present?
   end
 
   def show
