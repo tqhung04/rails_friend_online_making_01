@@ -1,15 +1,11 @@
 <% provide :title, "Edit user" %>
 <% provide :title, @user.name %>
 
-<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-
 <div class="container">
   <!-- Timeline
   ================================================= -->
   <div class="timeline">
-    <%= render "template/timeline_cover" %>
+    <%= render "shared/timeline_cover" %>
     <div id="page-contents">
       <div class="row">
         <div class="col-md- col-md-offset-3">
@@ -29,160 +25,238 @@
               </li>
             </ul>
             <div id="myTabContent" class="tab-content">
-              <div class="tab-pane active in" id="home">
-                <%= form_for(@user) do |f| %>
-                  <form id="tab">
-                    <div >
-                      <%= render "shared/error_messages" %>
-                      <h4>Information login</h4>
-                      <%= f.label :name %>
-                      <%= f.text_field :name, class: 'w50' %>
-                      <%= f.label :password %>
-                      <%= f.password_field :password, class: 'w50' %>
-                      <%= f.label :password_confirmation, "Confirmation" %>
-                      <%= f.password_field :password_confirmation, class: 'w50' %>
-                      <div>
-                        <%= f.submit "Save changes", class: "btn btn-primary" %>
-                      </div>
+              <div class="tab-pane fade active in" id="home">
+                <%= form_for @user, namespace: "login_form", :html => {:class => "form-horizontal"} do |f| %>
+                  <%= render "shared/error_messages" %>
+                  <h4>Information login</h4>
+                  <div class="form_group row margin_btm_15">
+                    <%= f.label :name, class: "control-label col-sm-2" %>
+                    <div class="col-sm-4">
+                      <%= f.text_field :name, class: "form-control" %>
                     </div>
-                  </form>
+                  </div>
+                  <div class="form_group row margin_btm_15">
+                    <%= f.label :password, class: "control-label col-sm-2" %>
+                    <div class="col-sm-4">
+                      <%= f.password_field :password, class: "form-control" %>
+                    </div>
+                  </div>
+                  <div class="form_group row margin_btm_15">
+                    <%= f.label :password_confirmation, "Confirmation", class: "control-label col-sm-2" %>
+                    <div class="col-sm-4">
+                      <%= f.password_field :password_confirmation, class: 'form-control' %>
+                    </div>
+                  </div>
+                  <div class="form_group row margin_btm_15">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-4">
+                      <%= f.submit "Save changes", class: "btn btn-primary" %>
+                    </div>
+                  </div>
                 <% end %>
               </div>
               <div class="tab-pane fade" id="public">
-                <%= form_for(@user) do |f| %>
-                  <form id="tab2">
-                    <div>
+                <%= form_for @user, namespace: "public_form", :html => {:class => "form-horizontal"} do |f| %>
+                  <div>
                       <h4>Public Information</h4>
-                      <%= f.label :nick_name %>
-                      <%= f.text_field :nick_name, class: 'w50' %>
-                      <%= f.label :genre %>
-                      <p> Male<%= f.radio_button :genre, "male" %> &nbsp;
-                      Female<%= f.radio_button :genre, "female" %></p>
-                      <%= f.label :avatar %>
-                      <% if @user.avatar.present? %>
-                      <span><%= image_tag @user.avatar_url(:display), :class => "img-responsive profile-photo" %></span>
-                      <% end %>
-                      <%= f.file_field :avatar%>
-                      <img id="blah" class="w100" src="#" alt="your image" />
-                      <%= f.label :description %>
-                      <%= f.text_area :description, size: "3x3", class: 'w50' %>
-                      <%= f.label :hobby %>
-                      <%= f.text_area :hobby, size: "3x3", class: 'w50' %>
-                      <%= f.label :country %>
-                      <%= f.text_field :country, class: 'w50' %>
-                      <%= f.label :status %>
-                      <p>
-                        <%= f.select :status, options_for_select([['FA','FA'],['love', 'love'],
-                        ['lovelorn', 'lovelorn'],['marital', 'marital'],['divorced', 'divorced'],
-                        ['seprated', 'seprated']],@user.status) %>
-                      </p>
-                      <div>
-                        <%= f.submit "Save changes", class: "btn btn-primary" %>
+                      <div class="form_group row margin_btm_15">
+                        <%= f.label :nick_name, class: "control-label col-sm-2" %>
+                        <div class="col-sm-4">
+                          <%= f.text_field :nick_name, class: "form-control" %>
+                        </div>
                       </div>
+                      <div class="form_group row margin_btm_15">
+                        <%= f.label :genre, class: "control-label col-sm-2" %>
+                        <div class="col-sm-4">
+                          Male<%= f.radio_button :genre, "male" %> &nbsp;
+                          Female<%= f.radio_button :genre, "female" %>
+                        </div>
+                      </div>
+                      <div class="form_group row margin_btm_15">
+                        <%= f.label :avatar, class: "control-label col-sm-2" %>
+                        <% if @user.avatar.present? %>
+                          <%= image_tag @user.avatar_url(), :class => "img-responsive profile-photo" %>
+                        <% end %>
+                        <div class="col-sm-4">
+                          <%= f.file_field :avatar, class: "form-control" %>
+                        </div>
+                        <img id="blah" width="200" src="#" alt="your image" />
+                      </div>
+                      <div class="form_group row margin_btm_15">
+                        <%= f.label :description, class: "control-label col-sm-2" %>
+                        <div class="col-sm-4">
+                          <%= f.text_area :description, size: "3x3", class: 'form-control' %>
+                        </div>
+                      </div>
+                      <div class="form_group row margin_btm_15">
+                        <%= f.label :hobby, class: "control-label col-sm-2" %>
+                        <div class="col-sm-4">
+                          <%= f.text_area :hobby, size: "3x3", class: 'form-control' %>
+                        </div>
+                      </div>
+                      <div class="form_group row margin_btm_15">
+                        <%= f.label :country, class: "control-label col-sm-2" %>
+                        <div class="col-sm-4">
+                          <%= f.text_field :country, class: 'form-control' %>
+                        </div>
+                      </div>
+                      <div class="form_group row margin_btm_15">
+                        <%= f.label :status, class: "control-label col-sm-2" %>
+                        <div class="col-sm-4">
+                          <%= f.select :status, options_for_select([['FA','FA'],['love', 'love'],
+                          ['lovelorn', 'lovelorn'],['marital', 'marital'],['divorced', 'divorced'],
+                          ['seprated', 'seprated']],@user.status), class: 'form-control' %>
+                        </div>
+                      </div>
+                      <div class="form_group row margin_btm_15">
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-4">
+                          <%= f.submit "Save changes", class: "btn btn-primary" %>
+                        </div>
                     </div>
-                  </form>
+                  </div>
                 <% end %>
               </div>
               <div class="tab-pane fade" id="private">
-                <%= form_for(@user) do |f| %>
-                  <form id="tab3">
-                    <div>
-                      <h4>Private Information</h4>
-                      <%= f.fields_for :email do |email_field| %>
-                        <%= email_field.label :email %>
-                        <%= email_field.text_field :email, class: 'w50' %>
-                        <%= email_field.label :status %>
-                        <p>
-                          Public<%= email_field.radio_button :status, "true" %> &nbsp;
-                          Private<%= email_field.radio_button :status, "false" %>
-                        </p>
-                        <% end %>
-                      <%= f.fields_for :birthday do |b| %>
-                        <%= b.label :birthday %>
-                        <%= b.date_field :birthday, class: 'w50' %>
-                        <%= b.label :status %>
-                        <p>
-                          Public<%= b.radio_button :status, "true" %> &nbsp;
-                          Private<%= b.radio_button :status, "false" %>
-                        </p>
-                        <% end %>
-                      <%= f.fields_for :body do |bo| %>
-                        <%= bo.label :body %>
-                        <%= bo.text_field :body, class: 'w50' %>
-                        <%= bo.label :height %>
-                        <%= bo.text_field :height, class: 'w50' %>
-                        <%= bo.label :weight %>
-                        <%= bo.text_field :weight, class: 'w50' %>
-                        <%= bo.label :status %>
-                        <p>
-                          Public<%= bo.radio_button :status, "true" %> &nbsp;
-                          Private<%= bo.radio_button :status, "false" %>
-                        </p>
-                        <% end %>
-                      <%= f.fields_for :career do |c| %>
-                        <%= c.label :job %>
-                        <%= c.text_field :job, class: 'w50', value: @user.career.job %>
-                        <%= c.label :status %>
-                        <p>
-                          Public<%= c.radio_button :status, "true" %> &nbsp;
-                          Private<%= c.radio_button :status, "false" %>
-                        </p>
-                        <% end %>
-                      <%= f.fields_for :education do |ed| %>
-                        <%= ed.label :education %>
-                        <%= ed.text_field :education, class: 'w50' %>
-                        <%= ed.label :status %>
-                        <p>
-                          Public<%= ed.radio_button :status, "true" %> &nbsp;
-                          Private<%= ed.radio_button :status, "false" %>
-                        </p>
-                        <% end %>
-                      <div>
-                        <%= f.submit "Save changes", class: "btn btn-primary" %>
+                <%= form_for @user, namespace: "private_form", :html => {:class => "form-horizontal"} do |f| %>
+                  <h4>Private Information</h4>
+                  <div class="form_group row margin_btm_15">
+                    <%= f.fields_for :email do |email_field| %>
+                      <%= email_field.label :email, class: "control-label col-sm-2" %>
+                      <div class="col-sm-4">
+                        <%= email_field.text_field :email, class: 'form-control' %>
+                      </div>
+                      <%= email_field.label :status %>
+                      <p>
+                        Public<%= email_field.radio_button :status, "true" %> &nbsp;
+                        Private<%= email_field.radio_button :status, "false" %>
+                      </p>
+                    <% end %>
+                  </div>
+                  <div class="form_group row margin_btm_15">
+                  <%= f.fields_for :birthday do |b| %>
+                    <%= b.label :birthday, class: "control-label col-sm-2" %>
+                    <div class="col-sm-4">
+                      <%= b.date_field :birthday, class: 'form-control' %>
+                    </div>
+                    <%= b.label :status %>
+                    <p>
+                      Public<%= b.radio_button :status, "true" %> &nbsp;
+                      Private<%= b.radio_button :status, "false" %>
+                    </p>
+                    <% end %>
+                  </div>
+                  <div class="form_group row margin_btm_15">
+                  <%= f.fields_for :body do |bo| %>
+                    <%= bo.label :body, class: "control-label col-sm-2" %>
+                    <div class="col-sm-10 margin_btm_10">
+                      <%= bo.text_field :body, class: 'form-control' %>
+                    </div>
+                    <div class="row margin_btm_10">
+                        <%= bo.label :height, class: "control-label col-sm-4" %>
+                      <div class="col-sm-4">
+                        <%= bo.text_field :height, class: 'form-control' %>
                       </div>
                     </div>
-                  </form>
+                    <div class="row margin_btm_10">
+                        <%= bo.label :weight, class: "control-label col-sm-4" %>
+                      <div class="col-sm-4">
+                        <%= bo.text_field :weight, class: 'form-control' %>
+                      </div>
+                    </div>
+                    <div class="row margin_btm_10">
+                      <%= bo.label :status, class: "control-label col-sm-3" %>
+                      <div class="col-sm-4">
+                        Public<%= bo.radio_button :status, "true" %> &nbsp;
+                        Private<%= bo.radio_button :status, "false" %>
+                      </div>
+                    </div>
+                    <% end %>
+                  </div>
+                  <div class="form_group row margin_btm_15">
+                  <%= f.fields_for :career do |c| %>
+                    <%= c.label :job, class: "control-label col-sm-2" %>
+                    <div class="col-sm-4">
+                      <%= c.text_field :job, class: 'form-control', value: @user.career.job %>
+                    </div>
+                    <%= c.label :status %>
+                    <p>
+                      Public<%= c.radio_button :status, "true" %> &nbsp;
+                      Private<%= c.radio_button :status, "false" %>
+                    </p>
+                    <% end %>
+                  </div>
+                  <div class="form_group row margin_btm_15">
+                    <%= f.fields_for :education do |ed| %>
+                      <%= ed.label :education, class: "control-label col-sm-2" %>
+                      <div class="col-sm-4">
+                        <%= ed.text_field :education, class: 'form-control' %>
+                      </div>
+                      <%= ed.label :status %>
+                      <p>
+                        Public<%= ed.radio_button :status, "true" %> &nbsp;
+                        Private<%= ed.radio_button :status, "false" %>
+                      </p>
+                    <% end %>
+                  </div>
+                  <div>
+                    <%= f.submit "Save changes", class: "btn btn-primary" %>
+                  </div>
                 <% end %>
               </div>
               <div class="tab-pane fade" id="desire">
-                <%= form_for(@user) do |f| %>
-                  <form id="tab4">
-                    <div>
-                      <h4>Information Desire</h4>
-                      <%= f.fields_for :desire do |de| %>
-                        <%= de.label :status %>
-                        <p>
-                          Public<%= de.radio_button :status, "true" %> &nbsp;
-                          Private<%= de.radio_button :status, "false" %>
-                        </p>
-                        <%= de.label :genre %>
-                        <p>
-                          Male<%= de.radio_button :genre, "male" %> &nbsp;
-                          Female<%= de.radio_button :genre, "female" %>
-                        </p>
-                        <%= de.label :description %>
-                        <%= de.text_area :description, cols: 40, rows: 4, class: 'w50' %>
-                        <%= de.label :age %>
-                        <p>
-                          <%= de.number_field :age_min, min: 18 %> &nbsp; -
-                          <%= de.number_field :age_max, min: 19 %>
-                        </p>
-                        <%= de.label :height %>
-                        <p>
-                          <%= de.number_field :height_min, min: 0 %> &nbsp; -
-                          <%= de.number_field :height_max, min: 0 %> cm
-                        </p>
-                        <%= de.label :weight %>
-                        <p>
-                          <%= de.number_field :weight_min, min: 18 %> &nbsp; -
-                          <%= de.number_field :weight_max, min: 19 %> kg
-                        </p>
-                      <% end %>
-                      <div>
-                      <%= f.submit "Save changes", class: "btn btn-primary" %>
-                      </div>
+                <%= form_for @user, namespace: "desire_form", :html => {:class => "form-horizontal"} do |f| %>
+                  <h4>Information Desire</h4>
+                  <%= f.fields_for :desire do |de| %>
+                  <div class="form_group row margin_btm_15">
+                    <%= de.label :status, class: "control-label col-sm-2" %>
+                    <div class="col-sm-4">
+                      <p>
+                      Public<%= de.radio_button :status, "true" %> &nbsp;
+                      Private<%= de.radio_button :status, "false" %>
+                    </p>
                     </div>
-                  </form>
+                  </div>
+                  <div class="form_group row margin_btm_15">
+                    <%= de.label :genre, class: "control-label col-sm-2" %>
+                    <div class="col-sm-4">
+                      <p>
+                        Male<%= de.radio_button :genre, "male" %> &nbsp;
+                        Female<%= de.radio_button :genre, "female" %>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="form_group row margin_btm_15">
+                    <%= de.label :description, class: "control-label col-sm-2" %>
+                    <div class="col-sm-4">
+                      <%= de.text_area :description, cols: 40, rows: 4, class: 'form-control' %>
+                    </div>
+                  </div>
+                  <div class="form_group row margin_btm_15">
+                    <%= de.label :age, class: "control-label col-sm-2" %>
+                    <p>
+                      <%= de.number_field :age_min, min: 18 %> &nbsp; -
+                      <%= de.number_field :age_max, min: 19 %>
+                    </p>
+                  </div>
+                  <div class="form_group row margin_btm_15">
+                    <%= de.label :height, class: "control-label col-sm-2" %>
+                    <p>
+                      <%= de.number_field :height_min, min: 0 %> &nbsp; -
+                      <%= de.number_field :height_max, min: 0 %> cm
+                    </p>
+                  </div>
+                  <div class="form_group row margin_btm_15">
+                    <%= de.label :weight, class: "control-label col-sm-2" %>
+                    <p>
+                      <%= de.number_field :weight_min, min: 18 %> &nbsp; -
+                      <%= de.number_field :weight_max, min: 19 %> kg
+                    </p>
+                  </div>
+                  <% end %>
+                  <div>
+                  <%= f.submit "Save changes", class: "btn btn-primary" %>
+                  </div>
                 <% end %>
               </div>
             </div>

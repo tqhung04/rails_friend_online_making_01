@@ -3,6 +3,6 @@ class AddPasswordDigestToUsers < ActiveRecord::Migration[5.2]
     add_column :users, :password_digest, :string
     add_column :users, :remember_digest, :string
     change_column :users, :country, :string
-    change_column :users, :avatar, :string, default: "image/upload/v1532933025/kmlpbeifhlzc7webnngd.png"
+    change_column :users, :avatar, :string
   end
 end

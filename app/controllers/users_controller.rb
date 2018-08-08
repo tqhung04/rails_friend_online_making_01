@@ -143,6 +143,7 @@ class UsersController < ApplicationController
   end
 
   def relationship
+    @report = Report.new
     if logged_in?
       @conection = Conection.find_follow(current_user.id, @user.id).first
       @conection? @followed = @conection : @followed = false
@@ -150,7 +151,7 @@ class UsersController < ApplicationController
   end
 
   def check_right
-    return if @conection&.status
+    return if @conection&.status || @user = current_user
     render :show_public
   end
 end

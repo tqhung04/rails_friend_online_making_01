@@ -9,21 +9,23 @@
     </div>
   </div>
   <% @transactions.each do |transaction| %>
-    <div class="nearby-user">
-      <div class="row">
-        <div class="col-md-2 col-sm-2">
-          <%= image_tag("users/user-15.jpg", :class => "profile-photo-lg") %>
-        </div>
-        <div class="col-md-7 col-sm-7">
-          <h5><a href="#" class="profile-link"><%= transaction.name %></a></h5>
-          <p><%= t ".status" %></p>
-          <p class="text-muted"><%= distance_view(transaction, @tran) %></p>
-        </div>
-        <div class="col-md-3 col-sm-3">
-          <button class="btn pull-right"><%=link_to t(".view"), user_url(transaction.user_id), class: "btn pull-right" %></button>
+    <% if transaction.user.present? %>
+      <div class="nearby-user">
+        <div class="row">
+          <div class="col-md-2 col-sm-2">
+            <%= image_tag transaction.user.avatar_url(:display), :class => "profile-photo-lg" %>
+          </div>
+          <div class="col-md-7 col-sm-7">
+            <h5><a href="#" class="profile-link"><%= transaction.name %></a></h5>
+            <p><%= t ".status" %></p>
+            <p class="text-muted"><%= distance_view(transaction, @tran) %></p>
+          </div>
+          <div class="col-md-3 col-sm-3">
+            <button class="btn pull-right"><%=link_to t(".view"), user_url(transaction.user_id), class: "btn pull-right" %></button>
+          </div>
         </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
 </div>
 
