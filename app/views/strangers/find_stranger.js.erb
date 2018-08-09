@@ -10,6 +10,7 @@ $(document).ready(function() {
   },
   {
     received: function(data) {
+      console.log(data);
       // Notice to owner
       if(data.matching == true && started == false) {
         $('#send-message').append('<%= j render "message_form", stranger: @stranger %>');
@@ -34,7 +35,7 @@ $(document).ready(function() {
           });
           $('.finding').hide();
           $('.edit_user').hide();
-        },1000);
+        },2000);
         started = true;
       }
 
