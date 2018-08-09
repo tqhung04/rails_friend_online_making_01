@@ -32,15 +32,17 @@
           <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
             <!-- Wrapper for slides -->
             <%= render "searchs/card_search" %>
-             <!-- Left and right controls -->
-            <a class="carousel-control" href="#myCarousel" data-slide="prev">
-              <span class="glyphicon glyphicon-chevron-left"></span>
-              <span class="sr-only"><%= t "previous" %></span>
-            </a>
-            <a class="card_next_btn carousel-control" href="#myCarousel" data-slide="next">
-              <span class="glyphicon glyphicon-chevron-right"></span>
-              <span class="sr-only"><%= t "back" %></span>
-            </a>
+            <% if @users.any? %>
+              <!-- Left and right controls -->
+              <a class="carousel-control" href="#myCarousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only"><%= t "previous" %></span>
+              </a>
+              <a class="card_next_btn carousel-control" href="#myCarousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only"><%= t "back" %></span>
+              </a>
+            <% end %>
           </div>
         </div>
       </div>
