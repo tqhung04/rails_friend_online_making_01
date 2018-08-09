@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get "/template/timeline_about" => "template#timeline_about"
   get "/template/timeline_album" => "template#timeline_album"
   get "/template/timeline_friends" => "template#timeline_friends"
-  get "/users/:id/show_public", to: "users#show_public"
+  get "/users/:id/show_public", to: "users#show_public", as: :show_public
   get "/users/:id/show_private", to: "users#show_private"
   get "/users/:id/show_desire", to: "users#show_desire"
   get "/users/:id/timeline_friends", to: "users#timeline_friends", as: :timeline_friends
@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   resources :users
   resources :conections, only: %i(create update destroy)
   resources :reports
+  resources :searchs
 
   mount ActionCable.server => "/cable"
   resources :conversations do

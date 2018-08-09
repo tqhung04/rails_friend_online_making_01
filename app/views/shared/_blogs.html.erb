@@ -1,3 +1,9 @@
+<% if @blogs.empty? %>
+  <div class="alert alert-warning">
+    <%= t "no_posts_msg" %>
+  </div>
+<% end %>
+
 <% @blogs.each do |blog| %>
 <div class="post-content">
     <%= link_to blog_path(blog) do %>
