@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_03_032943) do
+ActiveRecord::Schema.define(version: 2018_08_06_033737) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
@@ -163,7 +163,7 @@ ActiveRecord::Schema.define(version: 2018_08_03_032943) do
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
-    t.string "avatar", default: "image/upload/v1533480609/avatar-default.png"
+    t.string "avatar"
     t.string "nick_name"
     t.integer "genre"
     t.text "description"
@@ -176,7 +176,7 @@ ActiveRecord::Schema.define(version: 2018_08_03_032943) do
     t.string "password_digest"
     t.string "remember_digest"
     t.boolean "matching", default: false
-    t.boolean "isBlocked", default: false
+    t.boolean "is_blocked", default: false
   end
 
 end

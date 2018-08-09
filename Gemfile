@@ -16,7 +16,6 @@ gem "jquery-rails"
 gem "ionicons-rails"
 gem "font-awesome-rails"
 gem "sass-rails", ">= 3.2"
-gem "bootstrap-sass", "~> 3.3.7"
 gem "redis"
 gem "geocoder"
 gem "kaminari"
@@ -40,10 +39,11 @@ group :development do
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
   gem "web-console", ">= 3.3.0"
+  gem "mysql2", ">= 0.4.4", "< 0.6.0"
 end
 
 group :production do
-  gem "pg"
+  gem "pg", "~> 0.18"
 end
 
 group :test do

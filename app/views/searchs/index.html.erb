@@ -15,15 +15,15 @@
           <div class="form_group row margin_btm_15">
             <%= f.label :genre, class: "control-label col-sm-2" %>
             <div class="col-sm-4">
-              Male<%= f.radio_button :genre, "male" %> &nbsp;
-              Female<%= f.radio_button :genre, "female" %>
+              Male<%= f.radio_button :genre, "male", required: true %> &nbsp;
+              Female<%= f.radio_button :genre, "female", required: true %>
             </div>
           </div>
           <div class="form_group row margin_btm_15">
             <%= f.label :age, class: "control-label col-sm-2" %>
             <p>
-              <%= f.number_field :age_min, min: 10 %> &nbsp; -
-              <%= f.number_field :age_max, min: 10 %>
+              <%= f.number_field :age_min, min: Settings.matching.min_age, required: true %> &nbsp; -
+              <%= f.number_field :age_max, min: Settings.matching.max_age, required: true %>
             </p>
           </div>
            <%= f.submit "Matching", class: "btn btn-primary" %>
