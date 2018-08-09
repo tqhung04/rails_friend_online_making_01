@@ -27,6 +27,30 @@ class User < ApplicationRecord
       divorced: 4,
       separated: 5
       }
+
+  scope :join_with_transaction_and_birthday, -> {
+    joins("JOIN transactions ON users.id = transactions.user_id").
+    joins("JOIN birthdays ON users.id = birthdays.user_id")}
+  scope :check_genre, ->(genre) {
+    where("users.genre = ?", genre)
+  }
+  scope :check_birthday, ->(min_day, max_day) {
+    where("birthdays.birthday BETWEEN ? AND ?", min_day, max_day)
+  }
+  scope :check_position, ->(rad, latitude, longitude) {
+    where("transactions.latitude BETWEEN ? AND ?", latitude - rad.to_f/111, latitude + rad.to_f/111).
+    where("transactions.longitude BETWEEN ? AND ?", longitude - rad.to_f/111, longitude + rad.to_f/111)
+  }
+  scope :ordered_by_created_at, -> {order(created_at: :DESC)}
+  scope :join_with_conections, -> {
+    select("users.*").
+    joins("JOIN conections ON users.id = conections.sender_id")
+  }
+  scope :check_conection, -> (user) {
+    where("conections.recipient_id = ?", user.id).
+    where("conections.status = FALSE")
+  }
+
   ATTRIBUTES_PARAMS = [:name, :avatar, :nick_name, :genre, :description, :hobby,
    :country, :status, :password, :password_confirmation, :matching,
    email_attributes: Email::ATTRIBUTES_PARAMS, birthday_attributes: Birthday::ATTRIBUTES_PARAMS,

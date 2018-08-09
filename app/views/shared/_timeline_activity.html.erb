@@ -2,7 +2,7 @@
   <div id="sticky-sidebar">
     <h4 class="grey"><%= t(".follow_request") %></h4>
     <% if logged_in? && current_user.id == @user.id %>
-      <% @wanteds.each do |user| %>
+      <% @wanteds&.each do |user| %>
         <div class="feed-item">
         <div class="live-activity">
           <p><%= link_to user.name, user_path(user), class: "profile-link" %>want to follow you.</p>
