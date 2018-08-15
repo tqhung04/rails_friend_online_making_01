@@ -49,4 +49,8 @@ module SessionsHelper
   def store_location
     session[:forwarding_url] = request.original_url if request.get?
   end
+
+  def get_date_from_age age
+    Time.new(Time.now.year - age.to_i, 1 ,1)
+  end
 end

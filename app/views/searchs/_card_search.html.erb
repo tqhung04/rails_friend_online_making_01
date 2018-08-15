@@ -4,7 +4,7 @@
       <div class="card">
         <div class="card_images">
           <%= image_tag user.avatar_url, class: "card_image" %>
-          <span class="card_title"><%= user.name %> - <%= get_distance_search(user.local, @my_transaction) %> - Ha Noi</span>
+          <span class="card_title"><%= user.name %> - <%= get_distance_search(user.local, current_user.local) %> - Ha Noi</span>
         </div>
         <div class="card_action">
           <%=link_to t(".profile"), user_path(user), class: "btn btn-primary pull-left card_btn card_profile_btn" %>

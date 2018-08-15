@@ -1,10 +1,13 @@
 class BlogsController < ApplicationController
+  before_action :logged_in_user, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   before_action :correct_blog, only: [:show, :edit, :update, :destroy]
   before_action :current_user, only: [:new, :create]
   before_action :check_rights_delete, only: [:destroy]
   before_action :check_rights_update, only: [:edit, :update]
 
-  def index; end
+  def index
+    @blogs = Blog.join_with_connections.check_conection(current_user).ordered_by_created_at
+  end
 
   def show
     @support = Supports::BlogSupport.new @blog, current_user
@@ -42,10 +45,6 @@ class BlogsController < ApplicationController
   end
 
   private
-
-  def current_user
-    current_user = User.first
-  end
 
   def blog_params
     params.require(:blog).permit Blog::ATTRIBUTES_PARAMS
