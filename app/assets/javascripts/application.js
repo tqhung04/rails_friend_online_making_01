@@ -1,5 +1,6 @@
 //= require jquery
 //= require jquery3
+//= require bootstrap-slider
 //= require turbolinks
 //= require rails-ujs
 //= require jquery.appear.min
@@ -10,7 +11,6 @@
 //= require rails-ujs
 //= require script
 //= require bootstrap
-//= require bootstrap-slider
 //= require_self
 //= require cable
 

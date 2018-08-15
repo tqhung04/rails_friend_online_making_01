@@ -18,7 +18,7 @@
           <div class="col-md-7 col-sm-7">
             <h5><a href="#" class="profile-link"><%= transaction.name %></a></h5>
             <p><%= t ".status" %></p>
-            <p class="text-muted"><%= distance_view(transaction, @tran) %></p>
+            <p class="text-muted"><%= get_distance_search(transaction, @tran) %></p>
           </div>
           <div class="col-md-3 col-sm-3">
             <button class="btn pull-right"><%=link_to t(".view"), user_url(transaction.user_id), class: "btn pull-right" %></button>

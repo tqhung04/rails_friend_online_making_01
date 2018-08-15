@@ -1,18 +1,20 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: %i(edit update show)
-  before_action :correct_user, only: %i(show edit update show_desire show_public
-    show_private timeline_friends)
+  before_action :correct_user, :get_new_report, only: %i(show edit update show_desire show_public
+    show_private timeline_friends show_posts)
   before_action :user_params, only: :update
   before_action :relationship, only: %i(show show_private show_desire show_public
     timeline_friends)
   before_action :check_right, only: %i(show_desire show_private)
+  before_action :find_conection, only: %i(show show_public show_private show_desire)
 
   def timeline_friends
     @user.conections
   end
 
   def show
-    render :show_public
+    @blogs = @user.blogs.ordered_by_created_at.page(params[:page]).per Settings.pagination.report
+
   end
 
   def show_public
@@ -143,7 +145,6 @@ class UsersController < ApplicationController
   end
 
   def relationship
-    @report = Report.new
     if logged_in?
       @conection = Conection.find_follow(current_user.id, @user.id).first
       @conection? @followed = @conection : @followed = false
@@ -153,5 +154,21 @@ class UsersController < ApplicationController
   def check_right
     return if @conection&.status || @user = current_user
     render :show_public
+  end
+
+  def find_conection
+    if logged_in?
+      @conection = Conection.find_follow(current_user.id, @user.id).first
+      @followed = @conection.present? ? @conection : false
+      @follow = Conection.find_follow(current_user.id, @user.id)
+      if current_user?(@user)
+        conections = Conection.find_want_follow(current_user)
+        @wanteds = User.join_with_conections.check_conection(current_user)
+      end
+    end
+  end
+
+  def get_new_report
+    @report = Report.new
   end
 end

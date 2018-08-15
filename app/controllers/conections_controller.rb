@@ -17,10 +17,15 @@ class ConectionsController < ApplicationController
 
   def update
     @conection.update_attributes status: true
-    @user =User.find_by id: @conection.recipient_id
-    respond_to do |format|
-      format.html {redirect_to relationships_url}
-      format.js
+    conversation = current_user.conversations.new recipient_id: @conection.sender_id
+    if conversation.save
+      @user = User.find_by id: @conection.recipient_id
+      respond_to do |format|
+        format.html {redirect_to relationships_url}
+        format.js
+      end
+    else
+      @conection.update_attributes status: false
     end
   end
 
