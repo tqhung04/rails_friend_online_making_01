@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-md-3">
         <div class="profile-info">
-          <%=image_tag @user.avatar_url, class: "img-responsive profile-photo" %>
+          <%= image_tag @user.avatar_url, class: "img-responsive profile-photo" %>
           <h3><%= @user.name %></h3>
         </div>
       </div>
@@ -25,10 +25,12 @@
         </ul>
         <ul class="follow-me list-inline">
           <li><%= render "shared/follow_form" %></li>
-          <li>
-            <!-- Report btn -->
-            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#reportModal"><%= t "users.show.report" %></button>
-          </li>
+          <% if !current_user? @user %>
+            <li>
+              <!-- Report btn -->
+              <button type="button" class="btn btn-danger btn-sm pull-right" data-toggle="modal" data-target="#reportModal"><%= t "users.show.report" %></button>
+            </li>
+          <% end %>
         </ul>
       </div>
     </div>

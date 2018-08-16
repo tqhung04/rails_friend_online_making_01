@@ -29,9 +29,9 @@
               <ul class="dropdown-menu newsfeed-home">
                 <li><%= link_to t(".newsfeed"), blogs_path %></li>
                 <li><%= link_to t(".people_nearby"), transactions_path %></li>
-                <li><%= link_to t(".matching"), controller: "template", action: "new_feed_find_people" %></li>
-                <li><%= link_to t("template.chat_with_friends"), controller: "conversations", action: "index" %></li>
-                <li><%= link_to t("template.chat_with_stranger"), controller: "strangers", action: "index" %></li>
+                <li><%= link_to t(".matching"), searchs_path %></li>
+                <li><%= link_to t(".chat_with_friends"), conversations_path %></li>
+                <li><%= link_to t("template.chat_with_stranger"), talk_path %></li>
               </ul>
           </li>
           <li class="dropdown">
