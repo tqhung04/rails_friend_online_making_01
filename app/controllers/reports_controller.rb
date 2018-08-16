@@ -1,4 +1,5 @@
 class ReportsController < ApplicationController
+  before_action :logged_in?, only: %i(create)
   def create
     @report = Report.new report_params.merge(user: current_user)
     if @report.save

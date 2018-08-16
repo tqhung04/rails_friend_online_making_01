@@ -1,5 +1,5 @@
 class AdminController < ApplicationController
-  before_action :logged_in_user, :isAdmin?, only: %i(show_all_reports show_unique_reports show)
+  before_action :logged_in?, :isAdmin?, only: %i(show_all_reports show_unique_reports show)
 
   def show_all_reports
     @be_reported_users = Report.join_with_user.select_report.page(params[:page]).per Settings.pagination.report

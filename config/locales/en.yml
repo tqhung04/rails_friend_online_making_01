@@ -39,6 +39,7 @@ en:
   no_conversations_msg: "There are not any conversations. Please follow someone to chat."
   no_posts_msg: "There are not any posts"
   follow_request: "Follow Request"
+  no_request: "Has't any request"
   users:
     timeline_firends:
       following: "Following"
