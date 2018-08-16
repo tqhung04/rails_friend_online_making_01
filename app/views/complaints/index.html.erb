@@ -1,0 +1,30 @@
+<div id="page-contents">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h1 class="cred"><%= t "complaints.blocked_message" %></h1>
+        <h4 class="cblack"><%= t "complaints.blocked_sub_message" %></h4>
+      </div>
+
+      <div class="col-md-6" id="get_in_touch_div">
+        <h3 class="padding_top_10"><%= t "complaints.title" %></h3>
+        <%= form_for @complaint, remote: true, html: {class: "form-horizontal"} do |f| %>
+          <div class="form_group row margin_btm_15">
+            <%= f.label :content, class: "control-label col-sm-2" %>
+            <div class="col-sm-8">
+              <%= f.text_area :content, class: "form-control" %>
+            </div>
+          </div>
+          <div class="form_group row margin_btm_15">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-4">
+              <%= f.submit t("send"), class: "btn btn-primary" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="alert"></div>

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: %i(edit update show)
+  before_action :logged_in_user, :check_blocked_user, only: %i(timeline_friends create edit update show new destroy)
   before_action :correct_user, :get_new_report, only: %i(show edit update show_desire show_public
     show_private timeline_friends show_posts)
   before_action :user_params, only: :update

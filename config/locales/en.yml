@@ -40,6 +40,12 @@ en:
   no_posts_msg: "There are not any posts"
   follow_request: "Follow Request"
   no_request: "Has't any request"
+  send: "Send"
+  save_changes: "Save changes"
+  block: "Block"
+  active: "Active"
+  action_yes: "Yes"
+  action_no: "No"
   users:
     timeline_firends:
       following: "Following"
@@ -50,6 +56,7 @@ en:
       content_public: "Information Public"
       content_private: "Information Private"
       content_desire: "Information Desire"
+      content_block: "Action for admin"
     show:
       content: "Personal Information"
       content_private: "Private Information"
@@ -135,9 +142,16 @@ en:
     action: "Action"
     blocked: "Blocked"
     available: "Available"
+    complaint_all: "All complaints"
   transactions:
     map:
       view: "View profile"
   message:
     success: "Success"
     danger: "Danger"
+  complaints:
+    blocked_message: "You was blocked by admin"
+    blocked_sub_message: "Please contact with admin to active your account."
+    title: "Contact with admin"
+    create_success_msg: "Send the complain successfully"
+    create_failed_msg: "Complain failed"

@@ -23,6 +23,11 @@
               <li>
                 <a href="#desire" data-toggle="tab"><%= t "users.edit.content_desire" %></a>
               </li>
+              <% if current_user.admin? %>
+              <li>
+                <a href="#block" data-toggle="tab"><%= t "users.edit.content_block" %></a>
+              </li>
+              <% end %>
             </ul>
             <div id="myTabContent" class="tab-content">
               <div class="tab-pane fade active in" id="home">
@@ -50,7 +55,7 @@
                   <div class="form_group row margin_btm_15">
                     <div class="col-sm-2"></div>
                     <div class="col-sm-4">
-                      <%= f.submit "Save changes", class: "btn btn-primary" %>
+                      <%= f.submit t("save_changes"), class: "btn btn-primary" %>
                     </div>
                   </div>
                 <% end %>
@@ -111,9 +116,9 @@
                       <div class="form_group row margin_btm_15">
                         <div class="col-sm-2"></div>
                         <div class="col-sm-4">
-                          <%= f.submit "Save changes", class: "btn btn-primary" %>
+                          <%= f.submit t("save_changes"), class: "btn btn-primary" %>
                         </div>
-                    </div>
+                      </div>
                   </div>
                 <% end %>
               </div>
@@ -200,7 +205,7 @@
                     <% end %>
                   </div>
                   <div>
-                    <%= f.submit "Save changes", class: "btn btn-primary" %>
+                    <%= f.submit t("save_changes"), class: "btn btn-primary" %>
                   </div>
                 <% end %>
               </div>
@@ -255,10 +260,36 @@
                   </div>
                   <% end %>
                   <div>
-                  <%= f.submit "Save changes", class: "btn btn-primary" %>
+                  <%= f.submit t("save_changes"), class: "btn btn-primary" %>
                   </div>
                 <% end %>
               </div>
+              <% if current_user.admin? %>
+              <div class="tab-pane fade" id="block">
+                <%= form_for @user, namespace: "block_form", html: {class: "form-horizontal"} do |f| %>
+                  <div class="form_group row margin_btm_15">
+                    <%= f.label :is_blocked, class: "control-label col-sm-2" %>
+                    <div class="col-sm-4 padding_top_5">
+                      <%= t("block") %><%= f.radio_button :is_blocked, true %> &nbsp;
+                      <%= t("active") %><%= f.radio_button :is_blocked, false %>
+                    </div>
+                  </div>
+                  <div class="form_group row margin_btm_15">
+                    <%= f.label :admin, class: "control-label col-sm-2" %>
+                    <div class="col-sm-4 padding_top_5">
+                      <%= t("action_yes") %><%= f.radio_button :admin, true %> &nbsp;
+                      <%= t("action_no") %><%= f.radio_button :admin, false %>
+                    </div>
+                  </div>
+                  <div class="form_group row margin_btm_15">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-4">
+                      <%= f.submit t("save_changes"), class: "btn btn-primary" %>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+              <% end %>
             </div>
           </div>
         </div>

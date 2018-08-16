@@ -43,14 +43,18 @@
                   </div>
                 </div>
               </div><!--Chat Messages in Right End-->
-
-              <div class="send-message">
-                <div class="input-group">
-                    <%= render "messages/message_form" %>
-                </div>
-              </div>
             </div>
             <div class="clearfix"></div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="send-message pull-right">
+              <div class="input-group">
+                  <%= render "messages/message_form" %>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -59,7 +63,6 @@
       ================================================= -->
       <div class="col-md-2 static">
         <div class="suggestions" id="sticky-sidebar">
-          <%= render "template/new_feed_who_to_follow" %>
         </div>
       </div>
     </div>
