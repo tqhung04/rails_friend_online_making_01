@@ -14,7 +14,6 @@ class UsersController < ApplicationController
 
   def show
     @blogs = @user.blogs.ordered_by_created_at.page(params[:page]).per Settings.pagination.report
-
   end
 
   def show_public
@@ -163,7 +162,7 @@ class UsersController < ApplicationController
       @follow = Conection.find_follow(current_user.id, @user.id)
       if current_user?(@user)
         conections = Conection.find_want_follow(current_user)
-        @wanteds = User.join_with_conections.check_conection(current_user)
+        @wanteds = User.join_with_conections.check_conection(current_user).ordered_by_created_at
       end
     end
   end
