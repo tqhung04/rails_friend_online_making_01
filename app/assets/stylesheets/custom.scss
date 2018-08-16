@@ -11,6 +11,10 @@
   width: 50%;
 }
 
+.w100 {
+  width: 100%;
+}
+
 .chat-room .chat-body ul.chat-message {
   overflow: hidden;
 }
@@ -194,4 +198,18 @@ margin_top_10 {
     float: left;
     margin-right: 10px
   }
+}
+
+.social-share-button .ssb-icon {
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-size: 22px 23px !important;
+  display: inline-block !important;
+  height: 25px !important;
+  width: 30px !important;
+}
+
+.social-share-button {
+  margin-top: 10px;
+  float: right;
 }

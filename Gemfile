@@ -27,6 +27,7 @@ gem "carrierwave-base64"
 gem "figaro"
 gem "glyphicons-rails", "~> 0.1.2"
 gem "bootstrap-slider-rails"
+gem "social-share-button", github: "huacnlee/social-share-button"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
