@@ -16,15 +16,6 @@ class UsersController < ApplicationController
     @blogs = @user.blogs.ordered_by_created_at.page(params[:page]).per Settings.pagination.report
   end
 
-  def show_public
-  end
-
-  def show_private
-  end
-
-  def show_desire
-  end
-
   def new
     @user = User.new
   end
@@ -34,16 +25,11 @@ class UsersController < ApplicationController
     if @user.save
       @email = @user.build_email email_params
       if @email.save
-        @birthday = @user.build_birthday birthday_params
-        @birthday.save
-        @career = @user.build_career career_params
-        @career.save
-        @body = @user.build_body body_params
-        @body.save
-        @education = @user.build_education education_params
-        @education.save
-        @desire = @user.build_desire desire_params
-        @desire.save
+        tables = [:birthday, :career, :body, :education, :desire]
+        tables.each do |tbl|
+          param_g = params.require(:user).permit tbl.capitalize.to_s.constantize::ATTRIBUTES_PARAMS
+          @user.send("build_#{tbl}", param_g).save
+        end
         create_default_tracsaction
         log_in @user
         flash[:success] = t("success")
@@ -94,26 +80,6 @@ class UsersController < ApplicationController
 
   def email_params
     params.require(:user).permit Email::ATTRIBUTES_PARAMS
-  end
-
-  def birthday_params
-    params.require(:user).permit Birthday::ATTRIBUTES_PARAMS
-  end
-
-  def education_params
-    params.require(:user).permit Education::ATTRIBUTES_PARAMS
-  end
-
-  def body_params
-    params.require(:user).permit Body::ATTRIBUTES_PARAMS
-  end
-
-  def career_params
-    params.require(:user).permit Career::ATTRIBUTES_PARAMS
-  end
-
-  def desire_params
-    params.require(:user).permit Desire::ATTRIBUTES_PARAMS
   end
 
   def logged_in_user

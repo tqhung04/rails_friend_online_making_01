@@ -1,6 +1,6 @@
 class SearchsController < ApplicationController
   include TransactionsHelper
-  before_action :logged_in?
+  before_action :logged_in?, only: %i(index create)
 
   def index
     here_local = current_user.local
@@ -15,7 +15,7 @@ class SearchsController < ApplicationController
       check_genre(params[:search][:genre] == "male" ? 0 : 1).
       check_birthday(get_date_from_age(params[:search][:age_max].to_i),
         get_date_from_age(params[:search][:age_min].to_i)).
-        check_position(Settings.matching.rad, current_user.local.latitude,
+      check_position(Settings.matching.rad, current_user.local.latitude,
           current_user.local.longitude)
   end
 
