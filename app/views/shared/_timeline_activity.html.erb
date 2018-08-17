@@ -1,7 +1,7 @@
 <% if current_user.id == @user.id %>
   <div id="sticky-sidebar">
     <h4 class="grey"><%= t(".follow_request") %></h4>
-    <% if !@wanteds.any? %>
+    <% if !@wanteds&.any? %>
        <div class="alert alert-warning">
           <%= t "no_request" %>
         </div>

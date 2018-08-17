@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   before_action :load_user, only: %i(create)
+  before_action { flash.clear }
 
   def new; end
 

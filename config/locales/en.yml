@@ -2,6 +2,8 @@ en:
   hello: "Hello world"
   success: "Success"
   error: "Error"
+  logout_success: "Logout successfully"
+  sign_up_success: "Signup successfully"
   account: "Account"
   profile: "Profile"
   log_out: "Log out"
@@ -50,6 +52,8 @@ en:
     timeline_firends:
       following: "Following"
       followed: "Followed"
+      friends: "Friends"
+      my_friend: "My friend"
     edit:
       content: "Update your profile"
       content_login: "Information Login"
