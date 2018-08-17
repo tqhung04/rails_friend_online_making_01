@@ -17,7 +17,7 @@ class ConectionsController < ApplicationController
     @conection.update_attributes status: true
     @user = User.find_by id: @conection.recipient_id
     check_unique = Conversation.between(@conection.sender_id, @conection.recipient_id)
-    if check_unique.present?
+    if !check_unique.present?
       conversation = current_user.conversations.new recipient_id: @conection.sender_id
       if conversation.save
         conections_respond

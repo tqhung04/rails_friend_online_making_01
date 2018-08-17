@@ -48,6 +48,7 @@ en:
   active: "Active"
   action_yes: "Yes"
   action_no: "No"
+  chat_with_friends: "Chat with friends"
   users:
     timeline_firends:
       following: "Following"

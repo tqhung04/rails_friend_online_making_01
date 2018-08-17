@@ -8,7 +8,14 @@ class ConversationsController < ApplicationController
   end
 
   def show
-    @messages = Message.message_asc.where conversation_id: params[:id]
+    conversation = Conversation.find_by id: params[:id]
+    if conversation.check_conection?
+      @messages = Message.message_asc.where conversation_id: params[:id]
+    else
+      redirect_to action: :show, id: @conversations.last.id if @conversations.last.present?
+    end
+
+
   end
 
   private
@@ -21,7 +28,7 @@ class ConversationsController < ApplicationController
   end
 
   def get_conversations
-    @conversations = Conversation.get_all(current_user.id)
+    @conversations = Conversation.get_all(current_user.id).check_conection
   end
 
   def get_current_conversation
