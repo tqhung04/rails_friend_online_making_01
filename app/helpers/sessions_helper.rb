@@ -28,6 +28,10 @@ module SessionsHelper
     current_user.present?
   end
 
+  def is_blocked?
+    current_user.is_blocked?
+  end
+
   def forget user
     user.forget
     cookies.delete(:user_id)

@@ -6,7 +6,7 @@
   ================================================= -->
   <div class="col-md-3 static">
     <%= render "shared/current_user_profile_card" %>
-    <%= render "admin_nav" %>
+    <%= render "admin/admin_nav" %>
   </div>
   <div class="col-md-9">
     <table class="table">
@@ -43,7 +43,7 @@
             <td><%= report.description %></td>
             <td><%= report.created_at.strftime("%d/%m/%y %I:%M") %></td>
             <td>
-              <%= link_to t("admin.detail"), :controller => "admin", :action => "show", :id => report.user_id %>
+              <%= link_to t("admin.detail"), admin_report_path(report.user_id) %>
               <%= link_to t("edit"), edit_user_path(report.reported_id) %>
               </td>
           </tr>

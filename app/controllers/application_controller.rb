@@ -18,4 +18,9 @@ class ApplicationController < ActionController::Base
     return if logged_in?
     redirect_to login_url
   end
+
+  def check_blocked_user
+    return if !is_blocked?
+    redirect_to complaints_path
+  end
 end

@@ -1,0 +1,9 @@
+var tag = '#alert';
+
+if(<%= @status %> == true) {
+  toggle_message(tag, 'success', '<%= t "complaints.create_success_msg" %>');
+} else {
+  toggle_message(tag, 'danger', '<%= t "complaints.create_failed_msg" %>');
+}
+
+$("#complaint_content").val("");

@@ -15,6 +15,22 @@
   width: 100%;
 }
 
+.cred {
+  color: red
+}
+
+.cblack {
+  color: black
+}
+
+.padding_top_5 {
+  padding-top: 5px
+}
+
+.padding_top_10 {
+  padding-top: 10px
+}
+
 .chat-room .chat-body ul.chat-message {
   overflow: hidden;
 }
@@ -159,7 +175,7 @@ form.edit_user {
 #alert {
   overflow: hidden;
   position: absolute;
-  top: 103px;
+  top: 60px;
   width: 30%;
   right: 0;
 }
@@ -212,4 +228,16 @@ margin_top_10 {
 .social-share-button {
   margin-top: 10px;
   float: right;
+}
+
+.scrollbar-wrapper.tab-content {
+  height: 300px;
+}
+
+.scrollbar-wrapper.contact-list {
+  height: 300px;
+}
+
+#get_in_touch_div {
+  border-left: 1px solid grey
 }

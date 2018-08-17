@@ -17,6 +17,7 @@ class User < ApplicationRecord
   has_many :conversations, foreign_key: :sender_id
   has_many :messages
   has_many :conection
+  has_many :complaints
 
   enum genre: {male: 0, female: 1}
   enum status: {
@@ -51,8 +52,9 @@ class User < ApplicationRecord
     where("conections.status = FALSE")
   }
 
-  ATTRIBUTES_PARAMS = [:name, :avatar, :nick_name, :genre, :description, :hobby,
-   :country, :status, :password, :password_confirmation, :matching,
+  ATTRIBUTES_PARAMS = [:name, :avatar, :nick_name, :genre, :description,:hobby,
+    :country, :status, :password, :password_confirmation,:matching,
+    :is_blocked, :admin,
    email_attributes: Email::ATTRIBUTES_PARAMS, birthday_attributes: Birthday::ATTRIBUTES_PARAMS,
    body_attributes: Body::ATTRIBUTES_PARAMS, career_attributes: Career::ATTRIBUTES_PARAMS,
    desire_attributes: Desire::ATTRIBUTES_PARAMS, education_attributes: Education::ATTRIBUTES_PARAMS].freeze
