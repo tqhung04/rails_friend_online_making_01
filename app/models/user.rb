@@ -51,6 +51,12 @@ class User < ApplicationRecord
     where("conections.recipient_id = ?", user.id).
     where("conections.status = FALSE")
   }
+  scope :get_friends, -> (user) {
+    joins("JOIN conections ON users.id = conections.sender_id OR
+      users.id = conections.recipient_id").where("conections.status = true").
+    where("users.id != ?", user.id).
+    where("conections.sender_id = ? OR conections.recipient_id = ?", user.id, user.id)
+  }
 
   ATTRIBUTES_PARAMS = [:name, :avatar, :nick_name, :genre, :description,:hobby,
     :country, :status, :password, :password_confirmation,:matching,

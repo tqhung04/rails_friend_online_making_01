@@ -14,54 +14,23 @@
           ================================================= -->
           <div class="friend-list">
             <div class="row">
-              <h4><%= t ".following" %></h4>
-              <% co = @user.conections.all.ids %>
-              <% count = @user.conections.count %>
-              <% for i in 0..count-1 %>
-                <% conection = Conection.find_by id: co[i] %>
-                <% if conection.status?%>
-                  <% u = User.find_by id: conection.recipient_id %>
+              <h4><%= t ".friends" %></h4>
+              <% @friends.each do |fr| %>
                   <div class="col-md-6 col-sm-6">
                     <div class="friend-card">
                       <%= image_tag("covers/1.jpg", :class => "img-responsive cover") %>
                       <div class="card-info">
-                        <%= image_tag u.avatar_url(), :class => "profile-photo-lg" %>
+                        <%= image_tag fr.avatar_url, class: "profile-photo-lg" %>
                         <div class="friend-info">
-                          <a href="#" class="pull-right text-green">My Friend</a>
-                          <h5><a href="timeline.html" class="profile-link"><%= u.name %></a></h5>
-                          <p><%= u.nick_name %></p>
+                          <%= link_to t(".my_friend"), user_path(fr), class: "pull-right text-green" %>
+                          <h5>
+                            <%= link_to fr.name, user_path(fr), class: "profile-link" %>
+                          </h5>
+                          <p><%= fr.nick_name %></p>
                         </div>
                       </div>
                     </div>
                   </div>
-                <% end %>
-              <% end %>
-            </div>
-
-            <div class="row">
-              <h4><%= t ".followed" %></h4>
-              <% co = Conection.all.ids %>
-              <% count = Conection.count %>
-              <% for i in 0..count-1 %>
-                <% conection = Conection.find_by id: co[i] %>
-                <% if conection.status? %>
-                  <% if @user.id == conection.recipient_id %>
-                    <% u = User.find_by id: conection.sender_id %>
-                    <div class="col-md-6 col-sm-6">
-                      <div class="friend-card">
-                        <%= image_tag("covers/1.jpg", :class => "img-responsive cover") %>
-                        <div class="card-info">
-                          <%= image_tag u.avatar_url(), :class => "profile-photo-lg" %>
-                          <div class="friend-info">
-                            <a href="#" class="pull-right text-green">My Friend</a>
-                            <h5><a href="timeline.html" class="profile-link"><%= u.name %></a></h5>
-                            <p><%= u.nick_name %></p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  <% end %>
-                <% end %>
               <% end %>
             </div>
           </div>

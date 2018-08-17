@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, :check_blocked_user, only: %i(timeline_friends create edit update show new destroy)
+  before_action :logged_in_user, :check_blocked_user, only: %i(timeline_friends edit update show destroy)
   before_action :correct_user, :get_new_report, only: %i(show edit update show_desire show_public
     show_private timeline_friends show_posts)
   before_action :user_params, only: :update
@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 
   def timeline_friends
     @user.conections
+    @friends = User.get_friends(current_user)
   end
 
   def show
@@ -32,7 +33,7 @@ class UsersController < ApplicationController
         end
         create_default_tracsaction
         log_in @user
-        flash[:success] = t("success")
+        flash[:success] = t("sign_up_success")
         redirect_to @user
       else
         @user.destroy
@@ -59,7 +60,7 @@ class UsersController < ApplicationController
 
   def destroy
     if @user.destroy
-      flash[:success] = t("success")
+      flash[:success] = t("logout_success")
     else
       flash[:warning] = t("error")
     end

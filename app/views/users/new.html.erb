@@ -9,26 +9,28 @@
       <div class="line-divider"></div>
       <div class="form-wrapper">
         <p class="signup-text"><%= t ".sign_up_now" %></p>
-        <%= form_for @user do |f| %>
-        <%= render "shared/error_messages" %>
+        <%= simple_form_for @user do |f| %>
+          <%= render "shared/error_messages" %>
+
         <%= field_set_tag nil, class: "form-group" do %>
-        <%= f.text_field :name, class: "form-control", id: "example-name",
-          placeholder: t(".name") %>
+          <%= f.input :name, class: "form-control", id: "example-name",
+          placeholder: t(".name"), label: false %>
+        <% end %>
+
+
+        <%= field_set_tag nil, class: "form-group" do %>
+        <%= f.input :email, class: "form-control", id: "example-email",
+          placeholder: t(".email"), label: false %>
         <% end %>
 
         <%= field_set_tag nil, class: "form-group" do %>
-        <%= f.text_field :email, class: "form-control", id: "example-email",
-          placeholder: t(".email") %>
+        <%= f.input :password, class: "form-control",
+          id: "example-password", placeholder: t(".password"), label: false %>
         <% end %>
 
         <%= field_set_tag nil, class: "form-group" do %>
-        <%= f.password_field :password, class: "form-control",
-          id: "example-password", placeholder: t(".password") %>
-        <% end %>
-
-        <%= field_set_tag nil, class: "form-group" do %>
-        <%= f.password_field :password_confirmation, class: "form-control",
-          placeholder: t(".password_confirmation") %>
+        <%= f.input :password_confirmation, class: "form-control",
+          placeholder: t(".password_confirmation"), label: false %>
         <% end %>
         <%= f.submit t(".create"), class: "btn-secondary" %>
       <% end %>

@@ -273,6 +273,9 @@ GEM
     selenium-webdriver (3.13.1)
       childprocess (~> 0.5)
       rubyzip (~> 1.2)
+    simple_form (4.0.1)
+      actionpack (>= 5.0)
+      activemodel (>= 5.0)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -345,6 +348,7 @@ DEPENDENCIES
   rubocop (~> 0.54.0)
   sass-rails (>= 3.2)
   selenium-webdriver
+  simple_form
   social-share-button!
   spring
   spring-watcher-listen (~> 2.0.0)
