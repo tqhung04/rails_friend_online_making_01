@@ -6,7 +6,7 @@ class BlogsController < ApplicationController
   before_action :check_rights_update, only: [:edit, :update]
 
   def index
-    @blogs = Blog.join_with_connections.check_conection(current_user).ordered_by_created_at
+    @blogs = Blog.join_with_conections(current_user).ordered_by_created_at.page(params[:page]).per Settings.pagination.blog
   end
 
   def show

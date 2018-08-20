@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2018_08_16_104747) do
 
   create_table "bodies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
-    t.string "body"
+    t.integer "body"
     t.boolean "status", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

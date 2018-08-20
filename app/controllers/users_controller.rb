@@ -10,11 +10,11 @@ class UsersController < ApplicationController
 
   def timeline_friends
     @user.conections
-    @friends = User.get_friends(current_user)
+    @friends = User.get_friends(current_user).page(params[:page]).per Settings.pagination.friend
   end
 
   def show
-    @blogs = @user.blogs.ordered_by_created_at.page(params[:page]).per Settings.pagination.report
+    @blogs = @user.blogs.ordered_by_created_at.page(params[:page]).per Settings.pagination.blog
   end
 
   def new
@@ -129,7 +129,7 @@ class UsersController < ApplicationController
       @follow = Conection.find_follow(current_user.id, @user.id)
       if current_user?(@user)
         conections = Conection.find_want_follow(current_user)
-        @wanteds = User.join_with_conections.check_conection(current_user).ordered_by_created_at
+        @wanteds = User.join_with_conections.check_conection(current_user).ordered_by_created_at.page(params[:page]).per Settings.pagination.wanted
       end
     end
   end
