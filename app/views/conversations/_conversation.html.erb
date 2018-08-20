@@ -1,22 +1,24 @@
-<li class="<%= (conversation.id == params[:id].to_i) ? "active" : "" %>" data-conversation-id="<%= conversation.id %>">
-  <%= link_to conversation_url(conversation.id)  do %>
-    <div class="contact">
-      <%= image_tag("users/user-2.jpg", :class => "profile-photo-sm pull-left") %>
-      <div class="msg-preview">
-        <h6><%= (conversation.recipient.id == current_user.id) ? conversation.sender.name : conversation.recipient.name %></h6>
-        <p class="text-muted last_message">
-          <% @c = conversation.messages.last %>
-          <%= @c? "#{@c.body}" : t(".waiting") %>
-        </p>
-        <small class="text-muted"><%= time_ago_in_words(@c.created_at) if @c.present? %></small>
-        <div class="messages_status_icon">
-          <% if @c&.user_id == current_user.id %>
-            <div class="replied"><i class="icon ion-reply"></i></div>
-          <% else %>
-            <div class="seen"><i class="icon ion-checkmark-round"></i></div>
-          <% end %>
+<% if conversation.check_conection? %>
+  <li class="<%= (conversation.id == params[:id].to_i) ? "active" : "" %>" data-conversation-id="<%= conversation.id %>">
+    <%= link_to conversation_url(conversation.id)  do %>
+      <div class="contact">
+        <%= image_tag (conversation.recipient.id == current_user.id) ?  conversation.sender.avatar_url : conversation.recipient.avatar_url, class: "profile-photo-sm pull-left" %>
+        <div class="msg-preview">
+          <h6><%= (conversation.recipient.id == current_user.id) ? conversation.sender.name : conversation.recipient.name %></h6>
+          <p class="text-muted last_message">
+            <% @c = conversation.messages.last %>
+            <%= @c? "#{@c.body}" : t(".waiting") %>
+          </p>
+          <small class="text-muted"><%= time_ago_in_words(@c.created_at) if @c.present? %></small>
+          <div class="messages_status_icon">
+            <% if @c&.user_id == current_user.id %>
+              <div class="replied"><i class="icon ion-reply"></i></div>
+            <% else %>
+              <div class="seen"><i class="icon ion-checkmark-round"></i></div>
+            <% end %>
+          </div>
         </div>
       </div>
-    </div>
-  <% end %>
-</li>
+    <% end %>
+  </li>
+<% end %>

@@ -4,7 +4,7 @@
       <div class="col-md-7 static">
         <div class="post-content">
           <div class="post-container">
-            <%= image_tag("users/user-5.jpg", :class => "profile-photo-md pull-left") %>
+            <%= image_tag @blog.user.avatar_url, class: "profile-photo-md pull-left" %>
             <div class="post-detail">
               <div class="user-info">
                 <h5><a href="timeline.html" class="profile-link"><%= @blog.name %></a>
@@ -18,7 +18,7 @@
         <% if @blog.photo.present? %>
           <%=image_tag @blog.photo_url, class: "w100 img-responsive post-image" %>
         <% end %>
-        <%= social_share_button_tag(@blog.body, image: @blog.photo_url %>
+        <%= social_share_button_tag(@blog.body, image: @blog.photo_url) %>
         <div id="chat-block" class="txt_align_left">
           <div class="post-content">
             <div class="post-container">

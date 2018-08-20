@@ -17,7 +17,7 @@ $(document).ready(function() {
         $('#stranger_exit_btn').show();
         setTimeout(function(){
           $.ajax({
-            url: $('form#new_message').action,
+            url: '/talk',
             headers: {
               'Accept': 'text/javascript, */*; charset=utf-8',
               'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
@@ -76,7 +76,7 @@ $(document).ready(function() {
   $('#stranger_exit_btn_yes').on('click', function() {
     if (App.strangers) App.cable.subscriptions.remove(App.strangers);
     $.ajax({
-      url: $('form#new_message').action,
+      url: '/talk',
       headers: {
         Accept : 'text/javascript; charset=utf-8',
         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'

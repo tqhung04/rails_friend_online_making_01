@@ -4,17 +4,14 @@
   ================================================= -->
   <div class="timeline">
     <%= render "shared/timeline_cover" %>
-    <div id="page-contents">
+    <div id="page-contents" class="no_margin_top">
       <div class="row">
         <div class="col-md-3 user_show_nav">
-          <%= render "layouts/timeline_nav" %>
         </div>
         <div class="col-md-7">
-          <div class="about-content-block">
-            <ul id="nav_show" >
-              <%= render "shared/blogs" %>
-            </ul>
-          </div>
+          <%= render "template/new_feed_post_create_box" %>
+          <%= render "shared/blogs" %>
+          <%= paginate @blogs %>
         </div>
         <div class="col-md-2 static">
           <%= render "shared/timeline_activity" %>
