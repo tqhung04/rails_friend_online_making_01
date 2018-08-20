@@ -14,35 +14,23 @@
         <%= form_for :search, remote: true do |f| %>
           <div class="form_group row margin_btm_15">
             <%= f.label :genre, class: "control-label col-sm-2" %>
-            <div class="col-sm-4">
               Male<%= f.radio_button :genre, "male", required: true %> &nbsp;
               Female<%= f.radio_button :genre, "female", required: true %>
-            </div>
           </div>
           <div class="form_group row margin_btm_15">
             <%= f.label :age, class: "control-label col-sm-2" %>
-            <p>
-              <%= f.number_field :age_min, min: Settings.matching.min_age, required: true %> &nbsp; -
-              <%= f.number_field :age_max, max: Settings.matching.max_age, required: true %>
-            </p>
+            <%= f.number_field :age_min, min: Settings.matching.min_age, required: true %> &nbsp; -
+            <%= f.number_field :age_max, max: Settings.matching.max_age, required: true %>
           </div>
-           <%= f.submit "Matching", class: "btn btn-primary" %>
+          <div class="form_group row margin_btm_15">
+            <div class="col-sm-2"></div>
+            <%= f.submit "Matching", class: "btn btn-primary" %>
+          </div>
         <% end %>
         <div class="row">
           <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
             <!-- Wrapper for slides -->
             <%= render "searchs/card_search" %>
-            <% if @users.any? %>
-              <!-- Left and right controls -->
-              <a class="carousel-control" href="#myCarousel" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left"></span>
-                <span class="sr-only"><%= t "previous" %></span>
-              </a>
-              <a class="card_next_btn carousel-control" href="#myCarousel" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right"></span>
-                <span class="sr-only"><%= t "back" %></span>
-              </a>
-            <% end %>
           </div>
         </div>
       </div>
