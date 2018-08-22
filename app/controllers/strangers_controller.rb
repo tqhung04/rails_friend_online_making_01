@@ -1,5 +1,6 @@
 class StrangersController < ApplicationController
   before_action :check_blocked_user, :logged_in_user, only: %i(index find_stranger talk)
+  before_action :turn_off_matching, only: %i(index)
 
   def index
     @user = current_user
@@ -12,9 +13,9 @@ class StrangersController < ApplicationController
     @stranger = User.where(matching: true).where.not(id: current_user.id).first
     # Notice to owner when stranger join
     if @stranger.present?
+      current_user.turn_off_matching
       ActionCable.server.broadcast "user_#{@stranger.id}", matching: true
       # Turn off matching for participant
-      current_user.turn_off_matching
     end
     # Listen stream
     respond_to do |format|
@@ -62,5 +63,9 @@ class StrangersController < ApplicationController
 
   def message_params
     params.require(:message).permit(:user_id, :body, :created_at)
+  end
+
+  def turn_off_matching
+    current_user.turn_off_matching
   end
 end

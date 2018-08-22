@@ -9,14 +9,11 @@ class Blog < ApplicationRecord
 
   ATTRIBUTES_PARAMS = %i(body photo status).freeze
 
-  scope :join_with_connections, -> {
-    joins("JOIN conections ON blogs.user_id = conections.sender_id OR blogs.user_id = conections.recipient_id")
-  }
-
-  scope :check_conection, ->(user) {
-    where("conections.status = true").
-    where("conections.sender_id = ?", user.id).
-    or(where("conections.recipient_id = ?", user.id))
+  scope :join_with_conections, -> (user) {
+    joins("JOIN conections ON blogs.user_id = conections.sender_id OR
+      blogs.user_id = conections.recipient_id").where("conections.status = true").
+    where("blogs.user_id != ?", user.id).
+    where("conections.sender_id = ? OR conections.recipient_id = ?", user.id, user.id)
   }
 
   scope :ordered_by_created_at, -> {order(created_at: :DESC)}

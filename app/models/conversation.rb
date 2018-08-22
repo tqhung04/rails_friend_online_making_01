@@ -11,4 +11,18 @@ class Conversation < ApplicationRecord
   )}
 
   scope :get_all, -> (sender_id) {where(sender_id: sender_id).or(where(recipient_id: sender_id))}
+
+  scope :check_conection, -> {
+    joins("JOIN conections ON (conversations.sender_id = conections.sender_id
+      AND conversations.recipient_id = conections.recipient_id)
+      OR (conversations.sender_id = conections.recipient_id
+      AND conversations.recipient_id = conections.sender_id)").where("conections.status = true")
+  }
+
+  def check_conection?
+    cnt = Conection.where("(sender_id = ? AND recipient_id = ?)
+    OR (sender_id = ? AND recipient_id = ?)", sender_id, recipient_id,
+    recipient_id, sender_id).first
+    return cnt.present? && cnt&.status?
+  end
 end

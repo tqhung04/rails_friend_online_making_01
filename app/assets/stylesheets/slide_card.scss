@@ -1,5 +1,9 @@
 @import 'color';
 
+.carousel-inner {
+  background: #f4f4ef;
+}
+
 .card {
   width: 60% !important;
   margin: 0 auto;
@@ -15,6 +19,7 @@
   .card_images {
     overflow: hidden;
     position: relative;
+    height: 350px !important
   }
 
   .card_title {

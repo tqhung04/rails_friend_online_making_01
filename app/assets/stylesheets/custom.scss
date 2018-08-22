@@ -5,6 +5,7 @@
 @import 'font-awesome';
 @import 'color';
 @import 'slide_card';
+@import 'custom_kaminari';
 @import 'glyphicons';
 
 .w50 {
@@ -137,6 +138,10 @@ form.edit_user {
   margin-top: 50px
 }
 
+.no_margin_top {
+  margin-top: 0 !important
+}
+
 .user_show_nav{
   padding-top: 100px
 }
@@ -175,7 +180,7 @@ form.edit_user {
 #alert {
   overflow: hidden;
   position: absolute;
-  top: 60px;
+  top: 103px;
   width: 30%;
   right: 0;
 }
@@ -240,4 +245,8 @@ margin_top_10 {
 
 #get_in_touch_div {
   border-left: 1px solid grey
+}
+
+#squarespaceModal {
+  margin-top: 35px
 }

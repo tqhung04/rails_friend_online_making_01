@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
     if user&.authenticate(params[:session][:password])
       log_in user
       remember(user) if params[:session][:remember_me] == "1"
-      redirect_back_or user
+      redirect_back_or blogs_path
     else
       flash[:danger] = t(".danger")
       render :new

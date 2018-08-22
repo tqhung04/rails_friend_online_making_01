@@ -4,7 +4,7 @@ class TransactionsController < ApplicationController
 
   def index
     @tran = current_user.local
-    @transactions = Transaction.near(@tran)
+    @transactions = Transaction.near(@tran).page(params[:page]).per Settings.pagination.transaction
   end
 
   def create
