@@ -34,6 +34,7 @@ group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "rubocop", "~> 0.54.0", require: false
   gem "pry-rails"
+  gem "rspec-rails", "~> 3.7"
 end
 
 group :development do
@@ -52,6 +53,8 @@ group :test do
   gem "capybara", ">= 2.15", "< 4.0"
   gem "chromedriver-helper"
   gem "selenium-webdriver"
+  gem "shoulda", "~> 3.5"
+  gem "shoulda-matchers", "~> 3.1"
 end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]

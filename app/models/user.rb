@@ -67,6 +67,7 @@ class User < ApplicationRecord
   mount_base64_uploader :avatar, AvatarUploader
   validates :name, presence: true, length: {maximum: Settings.maximum.length_name}
   has_secure_password
+  validates_presence_of :password
   validates :password, presence: true, length: {minimum: Settings.minimum.length_password}, allow_nil: true
   with_options update_only:true do |up|
     up.accepts_nested_attributes_for :email
